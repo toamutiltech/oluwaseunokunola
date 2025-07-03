@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Explore my work in React, Next.js, Flask, Vue, and DevOps practices. Let's build something great.",
     images: ["/og-image.jpg"],
-    creator: "@yourhandle", // Optional
+    creator: "@toamutiltech", // Optional
   },
   metadataBase: new URL("https://yourdomain.com"), // Replace with your domain
 };

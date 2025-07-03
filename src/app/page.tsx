@@ -33,7 +33,7 @@ export default function Portfolio() {
     <a href="https://linkedin.com/in/oluwaseun-okunola-168030a5" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-transform hover:scale-110">
       <Linkedin className="w-6 h-6" />
     </a>
-    <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-transform hover:scale-110">
+    <a href="https://instagram.com/adeolu2019" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-transform hover:scale-110">
       <Instagram className="w-6 h-6" />
     </a>
   </div>
@@ -109,11 +109,11 @@ export default function Portfolio() {
   <h2 className="text-3xl font-semibold mb-6">Projects</h2>
   <div className="grid gap-8 max-w-6xl mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
     <div className="bg-zinc-800 text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img src="/images/doopmarket.jpg" alt="Doop Market" className="w-full h-48 object-cover rounded-t-lg" />
+      <img src="/images/Abuja-IT-Support.png" alt="Abuja IT Support Solution" className="w-full h-48 object-cover rounded-t-lg" />
       <div className="p-4 text-left">
-        <h3 className="font-bold text-lg">Doop Market</h3>
-        <p className="text-sm">Full-stack eCommerce platform using PHP and JavaScript.</p>
-        <a className="text-blue-400 hover:underline" href="https://doopmarket.com" target="_blank">Visit Site</a>
+        <h3 className="font-bold text-lg">Abuja IT Support Solution</h3>
+        <p className="text-sm">IT organization.</p>
+        <a className="text-blue-400 hover:underline" href="https://abujaitsupport.com" target="_blank">Visit Site</a>
       </div>
     </div>
     <div className="bg-zinc-800 text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
@@ -133,27 +133,27 @@ export default function Portfolio() {
       </div>
     </div>
         <div className="bg-zinc-800 text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img src="/images/nexa.png" alt="Nexa" className="w-full h-48 object-cover rounded-t-lg" />
+      <img src="/images/happy-homes.png" alt="Happy Homes" className="w-full h-48 object-cover rounded-t-lg" />
       <div className="p-4 text-left">
-        <h3 className="font-bold text-lg">Nexa.ng</h3>
-        <p className="text-sm">Small business website builder using modern tools.</p>
-        <a className="text-blue-400 hover:underline" href="https://nexa.ng" target="_blank">Visit Site</a>
+        <h3 className="font-bold text-lg">Happy Homes</h3>
+        <p className="text-sm">A demotration of a realestate design (Happy Homes).</p>
+        <a className="text-blue-400 hover:underline" href="https://happy-homes-ten.vercel.app" target="_blank">Visit Site</a>
       </div>
     </div>
         <div className="bg-zinc-800 text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img src="/images/nexa.png" alt="Nexa" className="w-full h-48 object-cover rounded-t-lg" />
+      <img src="/images/Access-Book-Shop-and-Stationaries.png" alt="Access Book Shop & Stationaries" className="w-full h-48 object-cover rounded-t-lg" />
       <div className="p-4 text-left">
-        <h3 className="font-bold text-lg">Nexa.ng</h3>
-        <p className="text-sm">Small business website builder using modern tools.</p>
-        <a className="text-blue-400 hover:underline" href="https://nexa.ng" target="_blank">Visit Site</a>
+        <h3 className="font-bold text-lg">Access Book Shop & Stationaries</h3>
+        <p className="text-sm">Discover a world of knowledge and tools! Shop quality books and stationaries for students, professionals, and schools.</p>
+        <a className="text-blue-400 hover:underline" href="https://www.accessbookshopandstationaries.com.ng" target="_blank">Visit Site</a>
       </div>
     </div>
         <div className="bg-zinc-800 text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img src="/images/nexa.png" alt="Nexa" className="w-full h-48 object-cover rounded-t-lg" />
+      <img src="/images/lacolina.png" alt="La Colina Five Technologies Enterprise" className="w-full h-48 object-cover rounded-t-lg" />
       <div className="p-4 text-left">
-        <h3 className="font-bold text-lg">Nexa.ng</h3>
-        <p className="text-sm">Small business website builder using modern tools.</p>
-        <a className="text-blue-400 hover:underline" href="https://nexa.ng" target="_blank">Visit Site</a>
+        <h3 className="font-bold text-lg">La Colina Five Technologies Enterprise</h3>
+        <p className="text-sm">La Colina Five Technologies Enterprise, is at the forefront of softwares/Information and Communication Technology (ICT) Solutions provision in Nigeria and across Africa.</p>
+        <a className="text-blue-400 hover:underline" href="https://www.lacolinatech.com.ng" target="_blank">Visit Site</a>
       </div>
     </div>
    
@@ -172,7 +172,7 @@ export default function Portfolio() {
     <div className="flex justify-center gap-4 mt-4">
       <a href="https://twitter.com/Aookunola" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400"><Twitter className="w-5 h-5" /></a>
       <a href="https://linkedin.com/in/oluwaseun-okunola-168030a5" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400"><Linkedin className="w-5 h-5" /></a>
-      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500"><Instagram className="w-5 h-5" /></a>
+      <a href="https://instagram.com/adeolu2019" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500"><Instagram className="w-5 h-5" /></a>
     </div>
   </div>
   <form onSubmit={handleSubmit} className="max-w-2xl space-y-4 mx-auto">
