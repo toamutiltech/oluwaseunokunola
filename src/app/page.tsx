@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Code, Database, Server, Wrench, Zap, Cloud, Code2, Swords, KeyRound, Phone, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Mail, Code, Database, Server, Zap, Cloud, Code2, Swords, KeyRound, Phone, Instagram, Twitter, Linkedin } from "lucide-react";
 
 
 export default function Portfolio() {
@@ -73,11 +73,11 @@ export default function Portfolio() {
       <section className="py-16 px-6 text-lg bg-zinc-900 text-white  animate-slide-up" id="about">
         <h2 className="text-3xl font-semibold mb-4 text-center">About Me</h2>
         <p className="max-w-6xl mx-auto">
-          I'm Oluwaseun Adeolu Okunola, a passionate and results-driven full-stack developer with over 5 years of experience building modern, secure, and scalable web and mobile applications. I specialize in technologies like React, Next.js, Vue.js, PHP, Python, and Flask, and have strong expertise in database systems including PostgreSQL, MySQL, and SQLite.
+          I&apos;m Oluwaseun Adeolu Okunola, a passionate and results-driven full-stack developer with over 5 years of experience building modern, secure, and scalable web and mobile applications. I specialize in technologies like React, Next.js, Vue.js, PHP, Python, and Flask, and have strong expertise in database systems including PostgreSQL, MySQL, and SQLite.
           <br /><br />
-          With a solid understanding of DevOps and DevSecOps practices—such as CI/CD, SAAC, PAAC, IAAC, and API integration—I deliver high-quality solutions that meet real business needs. I’ve led multiple successful projects, ranging from eCommerce platforms to customer care apps and real estate systems.
+          With a solid understanding of DevOps and DevSecOps practices—such as CI/CD, SAAC, PAAC, IAAC, and API integration—I deliver high-quality solutions that meet real business needs. I&apos;ve led multiple successful projects, ranging from eCommerce platforms to customer care apps and real estate systems.
           <br /><br />
-          Whether you're a startup or an established company, I’m here to help you turn your ideas into powerful digital products.
+          Whether you&apos;re a startup or an established company, I&apos;m here to help you turn your ideas into powerful digital products.
         </p>
       </section>
 <hr className="bg-white py-1 px-6" />
@@ -149,7 +149,7 @@ export default function Portfolio() {
       </div>
     </div>
         <div className="bg-zinc-800 text-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img src="/images/lacolina.png" alt="La Colina Five Technologies Enterprise" className="w-full h-48 object-cover rounded-t-lg" />
+     <img src="/images/lacolina.png" alt="La Colina Five Technologies Enterprise" className="w-full h-48 object-cover rounded-t-lg" />
       <div className="p-4 text-left">
         <h3 className="font-bold text-lg">La Colina Five Technologies Enterprise</h3>
         <p className="text-sm">La Colina Five Technologies Enterprise, is at the forefront of softwares/Information and Communication Technology (ICT) Solutions provision in Nigeria and across Africa.</p>
