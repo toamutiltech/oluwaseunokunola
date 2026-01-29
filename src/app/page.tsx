@@ -6,7 +6,7 @@ import {
   Mail, Code, Database, Server, Zap, Cloud, Phone,
   Linkedin, Github, ExternalLink, Download, ArrowRight,
   ShieldCheck, ShieldAlert, Layout,
-  Globe, Award, Briefcase, GraduationCap, ChevronRight
+  Globe, Award, Briefcase, GraduationCap, ChevronRight, Users
 } from "lucide-react";
 
 const PROJECTS = [
@@ -97,6 +97,16 @@ const EXPERIENCE = [
   }
 ];
 
+const LEADERSHIP = {
+  "Team Leadership": [
+    "EduEntryShield — Education security platform reducing impersonation and enhancing school safety.",
+    "My Invoice System — Automated PHP-based invoicing and billing platform.",
+    "Bizapplive — Customer care application built with Python, JavaScript, and Flask."
+  ],
+  "Mentorship": "Actively mentor junior developers through code reviews, best practices, and career guidance.",
+  "Thought Leadership": "Regularly share insights on software engineering, databases, and leadership via LinkedIn."
+};
+
 export default function Portfolio() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [activeSection, setActiveSection] = useState("hero");
@@ -140,7 +150,7 @@ export default function Portfolio() {
 
       {/* Navigation */}
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass rounded-full px-6 py-3 flex items-center gap-8 text-sm font-medium">
-        {["About", "Skills", "Exp", "Projects", "Contact"].map((item) => {
+        {["About", "Skills", "Exp", "Leadership", "Projects", "Contact"].map((item) => {
           const id = item.toLowerCase();
           return (
             <a
@@ -271,6 +281,49 @@ export default function Portfolio() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Leadership & Mentorship */}
+      <section id="leadership" className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold mb-16 text-center">Leadership & Mentorship</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="glass-card p-10 rounded-3xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+              <Users size={120} className="text-blue-500" />
+            </div>
+            <h3 className="text-2xl font-bold mb-6 text-blue-400 flex items-center gap-3">
+              <Award size={24} /> Team Leadership
+            </h3>
+            <ul className="space-y-4">
+              {LEADERSHIP["Team Leadership"].map((item, i) => (
+                <li key={i} className="flex gap-3 text-slate-400">
+                  <ChevronRight size={18} className="text-blue-500 shrink-0 mt-1" />
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            <div className="glass-card p-8 rounded-2xl hover:border-purple-500/30 transition-colors">
+              <h3 className="text-xl font-bold mb-4 text-purple-400 flex items-center gap-2">
+                <Users size={20} /> Mentorship
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                {LEADERSHIP.Mentorship}
+              </p>
+            </div>
+
+            <div className="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition-colors">
+              <h3 className="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
+                <Globe size={20} /> Thought Leadership
+              </h3>
+              <p className="text-slate-400 leading-relaxed">
+                {LEADERSHIP["Thought Leadership"]}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
