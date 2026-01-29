@@ -28,12 +28,49 @@ body {
   .glass {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
+
   .glass-card {
     @apply bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 shadow-2xl;
   }
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500;
   }
+}
+
+/* Animations & Effects */
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Smooth Scrolling */

@@ -114,17 +114,38 @@ export default function Portfolio() {
 
   useEffect(() => {
     setMounted(true);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.5 }
-    );
-    document.querySelectorAll("section[id]").forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+          if (entry.target.id) setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    // Give a small timeout to ensure DOM is ready
+    const timer = setTimeout(() => {
+      document.querySelectorAll("section[id], .reveal-item").forEach((el) => observer.observe(el));
+    }, 100);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, [mounted]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -144,6 +165,12 @@ export default function Portfolio() {
     <div className="min-h-screen bg-black text-slate-100 selection:bg-blue-500/30">
       {/* Background Decor */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute inset-0 z-0 opacity-30"
+          style={{
+            background: `radial-gradient(circle 800px at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.15), transparent 80%)`
+          }}
+        />
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/10 blur-[120px] rounded-full animate-pulse delay-700" />
       </div>
@@ -166,8 +193,8 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex flex-col items-center justify-center px-6 relative">
-        <div className="absolute top-20 right-10 flex flex-col gap-4">
+      <section id="hero" className="min-h-screen flex flex-col items-center justify-center px-6 relative reveal-hidden">
+        <div className="absolute top-20 right-10 flex flex-col gap-4 reveal-item reveal-hidden" style={{ transitionDelay: '200ms' }}>
           <a href="https://linkedin.com/in/oluwaseun-okunola-168030a5" target="_blank" className="p-2 glass rounded-full hover:text-blue-400 transition-all hover:scale-110">
             <Linkedin size={20} />
           </a>
@@ -179,7 +206,7 @@ export default function Portfolio() {
           </a>
         </div>
 
-        <div className="group relative mb-12">
+        <div className="group relative mb-12 animate-float reveal-item reveal-hidden" style={{ transitionDelay: '400ms' }}>
           <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
           <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-white/20">
             <Image
@@ -191,14 +218,14 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-center mb-4 tracking-tight leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold text-center mb-4 tracking-tight leading-tight reveal-item reveal-hidden" style={{ transitionDelay: '600ms' }}>
           Oluwaseun <span className="text-gradient">Okunola</span>
         </h1>
-        <p className="text-xl md:text-2xl text-slate-400 text-center max-w-2xl mb-8 font-light">
+        <p className="text-xl md:text-2xl text-slate-400 text-center max-w-2xl mb-8 font-light reveal-item reveal-hidden" style={{ transitionDelay: '800ms' }}>
           Software Engineer | <span className="text-blue-400">Cloud</span> & <span className="text-purple-400">DevSecOps</span> Specialist
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 reveal-item reveal-hidden" style={{ transitionDelay: '1000ms' }}>
           <a href="#contact" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center gap-2">
             Hire Me <ArrowRight size={18} />
           </a>
@@ -209,7 +236,7 @@ export default function Portfolio() {
       </section>
 
       {/* Summary / About */}
-      <section id="about" className="py-24 px-6 max-w-6xl mx-auto">
+      <section id="about" className="py-24 px-6 max-w-6xl mx-auto reveal-hidden">
         <div className="glass-card p-12 rounded-3xl relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <ShieldCheck size={120} className="text-blue-500" />
@@ -226,7 +253,7 @@ export default function Portfolio() {
               { label: "Completed Projects", value: "20+", icon: Layout },
               { label: "Availability", value: "Full-time / Remote", icon: Globe },
             ].map((stat, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5">
+              <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 reveal-item reveal-hidden" style={{ transitionDelay: `${(i + 1) * 200}ms` }}>
                 <stat.icon className="text-blue-400 mb-4" size={24} />
                 <div className="text-sm text-slate-500 mb-1">{stat.label}</div>
                 <div className="text-xl font-bold">{stat.value}</div>
@@ -237,15 +264,15 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 bg-slate-900/50">
+      <section id="skills" className="py-24 px-6 bg-slate-900/50 reveal-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-4xl font-bold mb-4">Core Technical Expertise</h2>
             <p className="text-slate-400">A comprehensive toolkit for modern application delivery</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(SKILLS).map(([category, items]) => (
-              <div key={category} className="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition-colors group">
+            {Object.entries(SKILLS).map(([category, items], i) => (
+              <div key={category} className="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition-colors group reveal-item reveal-hidden" style={{ transitionDelay: `${(i + 1) * 150}ms` }}>
                 <h3 className="text-xl font-bold mb-6 text-blue-400 flex items-center gap-2">
                   <SkillIcon category={category} /> {category}
                 </h3>
@@ -263,11 +290,11 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Timeline */}
-      <section id="exp" className="py-24 px-6 max-w-4xl mx-auto">
+      <section id="exp" className="py-24 px-6 max-w-4xl mx-auto reveal-hidden">
         <h2 className="text-4xl font-bold mb-16 text-center">Professional Journey</h2>
         <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-800 before:to-transparent">
-          {EXPERIENCE.map((exp) => (
-            <div key={exp.company} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          {EXPERIENCE.map((exp, i) => (
+            <div key={exp.company} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active reveal-item reveal-hidden" style={{ transitionDelay: `${(i + 1) * 200}ms` }}>
               <div className="flex items-center justify-center w-10 h-10 rounded-full border border-slate-800 bg-slate-900 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                 <div className="w-4 h-4 rounded-full bg-blue-500 group-hover:animate-ping" />
               </div>
@@ -285,10 +312,10 @@ export default function Portfolio() {
       </section>
 
       {/* Leadership & Mentorship */}
-      <section id="leadership" className="py-24 px-6 max-w-6xl mx-auto">
+      <section id="leadership" className="py-24 px-6 max-w-6xl mx-auto reveal-hidden">
         <h2 className="text-4xl font-bold mb-16 text-center">Leadership & Mentorship</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="glass-card p-10 rounded-3xl relative overflow-hidden group">
+          <div className="glass-card p-10 rounded-3xl relative overflow-hidden group reveal-item reveal-hidden" style={{ transitionDelay: '200ms' }}>
             <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
               <Users size={120} className="text-blue-500" />
             </div>
@@ -305,7 +332,7 @@ export default function Portfolio() {
             </ul>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 reveal-item reveal-hidden" style={{ transitionDelay: '400ms' }}>
             <div className="glass-card p-8 rounded-2xl hover:border-purple-500/30 transition-colors">
               <h3 className="text-xl font-bold mb-4 text-purple-400 flex items-center gap-2">
                 <Users size={20} /> Mentorship
@@ -328,7 +355,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Grid */}
-      <section id="projects" className="py-24 px-6 bg-slate-900/30">
+      <section id="projects" className="py-24 px-6 bg-slate-900/30 reveal-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
             <div>
@@ -338,7 +365,7 @@ export default function Portfolio() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PROJECTS.map((project, i) => (
-              <div key={i} className="group glass-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-all">
+              <div key={i} className="group glass-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-all reveal-item reveal-hidden" style={{ transitionDelay: `${(i + 1) * 150}ms` }}>
                 <div className="h-48 overflow-hidden relative">
                   <Image
                     src={project.image}
@@ -371,7 +398,7 @@ export default function Portfolio() {
       </section>
 
       {/* Certifications & Education */}
-      <section className="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-24">
+      <section id="certifications" className="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-24 reveal-hidden">
         <div>
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
             <Award className="text-blue-400" /> Certifications
@@ -403,7 +430,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 bg-slate-950 border-t border-slate-900">
+      <section id="contact" className="py-24 px-6 bg-slate-950 border-t border-slate-900 reveal-hidden">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Let&apos;s Build Something Secure</h2>
           <p className="text-slate-400 mb-12">I&apos;m currently available for freelance projects and full-time opportunities.</p>
