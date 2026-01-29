@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import {
-  Mail, Code, Database, Server, Zap, Cloud, Code2, Phone,
+  Mail, Code, Database, Server, Zap, Cloud, Phone,
   Linkedin, Github, ExternalLink, Download, ArrowRight,
-  ShieldCheck, ShieldAlert, Cpu, Layers, Layout, Monitor,
-  Globe, Award, Briefcase, GraduationCap, ChevronRight,
-  Instagram, Twitter
+  ShieldCheck, ShieldAlert, Layout,
+  Globe, Award, Briefcase, GraduationCap, ChevronRight
 } from "lucide-react";
 
 const PROJECTS = [
@@ -172,7 +172,12 @@ export default function Portfolio() {
         <div className="group relative mb-12">
           <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
           <div className="relative w-48 h-48 rounded-full overflow-hidden border-2 border-white/20">
-            <img src="/images/oluwaseun.png" alt="Oluwaseun" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-500" />
+            <Image
+              src="/images/oluwaseun.png"
+              alt="Oluwaseun"
+              fill
+              className="object-cover scale-110 group-hover:scale-100 transition-transform duration-500"
+            />
           </div>
         </div>
 
@@ -229,7 +234,7 @@ export default function Portfolio() {
             <p className="text-slate-400">A comprehensive toolkit for modern application delivery</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(SKILLS).map(([category, items], i) => (
+            {Object.entries(SKILLS).map(([category, items]) => (
               <div key={category} className="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition-colors group">
                 <h3 className="text-xl font-bold mb-6 text-blue-400 flex items-center gap-2">
                   <SkillIcon category={category} /> {category}
@@ -282,7 +287,12 @@ export default function Portfolio() {
             {PROJECTS.map((project, i) => (
               <div key={i} className="group glass-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-all">
                 <div className="h-48 overflow-hidden relative">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
                 </div>
                 <div className="p-6">
