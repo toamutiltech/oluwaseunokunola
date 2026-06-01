@@ -12,62 +12,84 @@ import {
 
 const PROJECTS = [
   {
+    title: "Stockara",
+    description: "Stockara is a modern web-based business management platform designed to help you efficiently manage your inventory, sales, and services from a single powerful system.",
+    image: "/images/stockara.png",
+    link: "https://www.getstockara.com.ng/",
+    tags: ["React", "TypeScript", "Flask", "AWS"]
+  },
+  {
+    title: "My Invoice System",
+    description: "Cloud-ready SaaS invoicing and billing platform with multi-user RBAC, OWASP authentication, transaction management, and multi-device support.",
+    image: "/images/MyInvoiceSystem.png",
+    link: "https://myinvoicesystem.xyz",
+    tags: ["PHP", "MySQL", "Docker", "OWASP"]
+  },
+  {
+    title: "EduEntryShield",
+    description: "Education security platform focused on identity verification and access control, reducing school impersonation incidents via biometric-ready system.",
+    image: "/images/EduEntry-Shield.png",
+    link: "https://eduentryshield.com.ng",
+    tags: ["React", "PHP", "PyTest", "Security"]
+  },
+  {
+    title: "Semptech Services Ltd",
+    description: "Service-booking platform connecting 50+ vetted technicians to customers nationwide via responsive, AWS-deployed web application.",
+    image: "/images/Semptech.png",
+    link: "https://semptech.tech",
+    tags: ["React", "Flask", "AWS", "Terraform"]
+  },
+  {
     title: "Amadi Amadi Consulting",
-    description: "Corporate website for a licensed estate surveying & valuation firm. Responsive UI, secure hosting, and SEO optimized architecture.",
-    image: "/images/amadi.png", // Assuming path exists or will be updated
+    description: "Corporate website for a licensed estate surveying & valuation firm. Responsive UI, secure hosting, and SEO-optimized architecture.",
+    image: "/images/amadi.png",
     link: "https://amadiamadi.com",
     tags: ["PHP", "SEO", "Responsive"]
   },
   {
-    title: "My Invoice System",
-    description: "Cloud-ready invoicing and billing platform with authentication, transaction management, and multi-device support.",
-    image: "/images/MyInvoiceSystem.png", // Reusing or updating
-    link: "https://myinvoicesystem.xyz",
-    tags: ["PHP", "MySQL", "Authentication"]
-  },
-  {
-    title: "Access Book Shop & Stationeries",
-    description: "Full-stack e-commerce platform with React (TypeScript) frontend and Flask REST API backend.",
-    image: "/images/Access-Book-Shop-and-Stationaries.png",
-    link: "https://accessbookshopandstationaries.com.ng",
-    tags: ["React", "Flask", "E-commerce"]
-  },
-  {
-    title: "Abuja IT Support",
-    description: "Business website built with PHP, optimized for performance and usability.",
-    image: "/images/Abuja-IT-Support.png",
-    link: "https://abujaitsupport.com",
-    tags: ["PHP", "Performance"]
-  },
-  {
     title: "Toa Multi Tech",
-    description: "Corporate technology services platform with scalable backend architecture.",
-    image: "/images/Toa-Multi-Tech.png", // Representing the corp site
+    description: "Corporate technology services platform with scalable backend architecture and cloud-ready deployment.",
+    image: "/images/Toa-Multi-Tech.png",
     link: "https://toamultitech.tech",
-    tags: ["Architecture", "Backend"]
+    tags: ["Architecture", "Docker", "GCP"]
   },
   {
-    title: "EduEntryShield",
-    description: "Education security platform focused on identity verification and access control.",
-    image: "/images/EduEntry-Shield.png",
-    link: "https://eduentryshield.toamultitech.tech",
-    tags: ["Security", "Identity"]
+    title: "Realtory ERP",
+    description: "The most comprehensive real estate management solution for modern agencies. Simplify your operations today.",
+    image: "/images/realtory.png",
+    link: "https://realtoryerp.com.ng/",
+    tags: ["PHP", "WordPress", "SEO"]
   },
   {
-    title: "Semptech Services Ltd",
-    description: "Service-booking platform connecting vetted technicians to customers nationwide..",
-    image: "/images/Semptech.png",
-    link: "https://semptech.tech",
-    tags: ["Service-booking", "Technicians"]
+    title: "Evansville Youth Health Competitions",
+    description: "Evansville Youth Health Competitions (EYHC) is Promoting healthy living and youth development through elite sports programs.",
+    image: "/images/EYHC.png",
+    link: "https://evansvilleyouthhealthcompetitions.com/",
+    tags: ["PHP", "API", "SEO"]
+  },
+  {
+    title: "Evansville Healthcare Foundation Worldwide",
+    description: "Evansville Healthcare Foundation Worldwide (EHFW) is a non-profit, non-governmental organisation driven by a strong humanitarian mandate. ",
+    image: "/images/Evansville.png",
+    link: "https://ehfw.org/",
+    tags: ["PHP", "WordPress", "SEO"]
+  },
+  {
+    title: "CYMS",
+    description: "The Committee of Youths on Mobilization and Sensitization (CYMS) is a dedicated umbrella for vibrant, energetic Nigerian youths committed to promoting national development.",
+    image: "/images/CYMS.png",
+    link: "https://CYMS.png/",
+    tags: ["PHP", "WordPress", "SEO"]
   }
 ];
 
 const SKILLS = {
-  "Programming": ["JavaScript (ES6+)", "PHP", "Python", "C++", "C"],
+  "Programming": ["JavaScript (ES6+)", "PHP", "Python", "TypeScript", "C++", "C"],
   "Frontend": ["React.js", "Next.js", "Vue.js", "Angular", "HTML5", "CSS3"],
-  "Backend": ["Flask", "REST APIs", "MVC Architecture", "Auth & Authz"],
-  "Cloud & DevOps": ["AWS/GCP", "CI/CD", "Docker", "Git", "Linux Admin", "IaC"],
-  "DevSecOps": ["Secure SDLC", "Security as Code", "Policy as Code", "Risk Management"],
+  "Backend": ["Flask", "REST APIs", "Node.js", "MVC Architecture", "Auth & Authz"],
+  "CMS & Testing": ["WordPress", "Strapi", "PyTest", "Jest"],
+  "Cloud & DevOps": ["AWS", "GCP", "Docker", "Terraform (IaC)", "CI/CD", "Git", "Linux", "Bash"],
+  "DevSecOps": ["OWASP", "Secure SDLC", "Security as Code", "Policy as Code", "RBAC", "Zero Trust", "Risk Management"],
   "Databases": ["MySQL", "PostgreSQL", "SQLite", "DB Optimization"]
 };
 
@@ -76,37 +98,50 @@ const EXPERIENCE = [
     company: "Toa Multi Tech",
     role: "Lead Software Engineer",
     period: "2025 – Present",
-    desc: "Lead full stack software development and cloud deployment for international-ready digital products. Design system architecture, RESTful APIs, and database schemas following scalability and security best practices."
+    desc: "Architected full-stack web apps using React, Next.js, and Flask REST APIs for scalable cloud deployment. Implemented Terraform IaC, Docker CI/CD pipelines, and OWASP-aligned security best practices."
   },
   {
     company: "La Colina Five Technologies",
-    role: "Software / Web Developer",
-    period: "2018 – 2025",
-    desc: "Developed and maintained full stack web applications. Administered Linux and Windows servers. Built and maintained CI/CD pipelines with Infrastructure as Code (IaC) principles."
+    role: "Web Developer",
+    period: "July 2018 – September 2025",
+    desc: "Built full-stack web apps using PHP, Python, React, and Vue.js. Deployed WordPress CMS and custom backends. Migrated legacy applications to AWS with zero-downtime deployment strategies."
   },
   {
     company: "Faith Found Kiddies",
     role: "IT Support Specialist",
-    period: "2023 – 2024",
-    desc: "Maintained school IT infrastructure including servers, networks, and CCTV systems."
+    period: "December 2023 – August 2024",
+    desc: "Maintained school IT infrastructure including servers, networks, and security systems for 300+ users. Trained staff on cybersecurity awareness and OWASP best practices."
   },
   {
-    company: "Computer Engineer / Technician",
-    role: "IT Professional",
-    period: "2015 – 2018",
-    desc: "Provided technical support for computers, printers, and networks. Repaired and maintained systems across multiple office environments."
+    company: "Tech Worth International",
+    role: "IT Consultant (Seasonal)",
+    period: "2020 – 2024",
+    desc: "Delivered web and cloud consultancy covering AWS architecture, infrastructure analysis, and OWASP-aligned security assessments for SME and enterprise clients."
   }
 ];
 
 const LEADERSHIP = {
   "Team Leadership": [
     "EduEntryShield — Education security platform reducing impersonation and enhancing school safety.",
-    "My Invoice System — Automated PHP-based invoicing and billing platform.",
-    "Bizapplive — Customer care application built with Python, JavaScript, and Flask."
+    "My Invoice System — Cloud-ready PHP invoicing platform with OWASP-aligned authentication.",
+    "Bizapplive — Customer care application built with Python, Flask, REST APIs, and PyTest-tested backend."
   ],
-  "Mentorship": "Actively mentor junior developers through code reviews, best practices, and career guidance.",
-  "Thought Leadership": "Regularly share insights on software engineering, databases, and leadership via LinkedIn."
+  "Mentorship": "Actively mentor junior developers through code reviews focused on OWASP security, clean architecture, and career guidance.",
+  "Thought Leadership": "Regularly share insights on software engineering, DevSecOps, cloud infrastructure, and leadership via LinkedIn."
 };
+
+const CERTIFICATIONS = [
+  { name: "Google Cloud DevSecOps Professional", date: "May 2026" },
+  { name: "CompTIA A+", date: "2020" },
+  { name: "CompTIA Network+", date: "2020" },
+  { name: "CompTIA Server+", date: "2020" },
+  { name: "Diploma in Network & IT (DNIIT) — NIIT Abuja", date: "2019" },
+  { name: "Full-Stack Web Development — La Colina Tech Hub", date: "2018" },
+  { name: "Git — Simplilearn", date: "2022" },
+  { name: "Scrum Basics — Mindluster", date: "2021" },
+  { name: "Windows Server Configuration & Administration", date: "2020" },
+  { name: "HTML/CSS — TemplateMonster", date: "2020" },
+];
 
 export default function Portfolio() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -137,7 +172,6 @@ export default function Portfolio() {
       });
     }, observerOptions);
 
-    // Give a small timeout to ensure DOM is ready
     const timer = setTimeout(() => {
       document.querySelectorAll("section[id], .reveal-item").forEach((el) => observer.observe(el));
     }, 100);
@@ -191,8 +225,7 @@ export default function Portfolio() {
               <a
                 key={item}
                 href={`#${id}`}
-                className={`transition-colors uppercase tracking-wider ${activeSection === id ? "text-blue-400" : "hover:text-blue-400"
-                  }`}
+                className={`transition-colors uppercase tracking-wider ${activeSection === id ? "text-blue-400" : "hover:text-blue-400"}`}
               >
                 {item}
               </a>
@@ -219,8 +252,7 @@ export default function Portfolio() {
                   key={item}
                   href={`#${id}`}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`transition-colors uppercase tracking-wider text-base py-2 border-b border-white/5 ${activeSection === id ? "text-blue-400" : "hover:text-blue-400"
-                    }`}
+                  className={`transition-colors uppercase tracking-wider text-base py-2 border-b border-white/5 ${activeSection === id ? "text-blue-400" : "hover:text-blue-400"}`}
                 >
                   {item}
                 </a>
@@ -260,8 +292,14 @@ export default function Portfolio() {
           Oluwaseun <span className="text-gradient">Okunola</span>
         </h1>
         <p className="text-xl md:text-2xl text-slate-400 text-center max-w-2xl mb-8 font-light reveal-item reveal-hidden" style={{ transitionDelay: '800ms' }}>
-          Software Engineer | <span className="text-blue-400">Cloud</span> & <span className="text-purple-400">DevSecOps</span> Specialist
+          Full-Stack Web Developer | <span className="text-blue-400">Cloud</span> & <span className="text-purple-400">DevSecOps</span> Specialist
         </p>
+
+        {/* Credential badge */}
+        <div className="flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium reveal-item reveal-hidden" style={{ transitionDelay: '900ms' }}>
+          <ShieldCheck size={16} />
+          Google Cloud DevSecOps Certified — May 2026
+        </div>
 
         <div className="flex gap-4 reveal-item reveal-hidden" style={{ transitionDelay: '1000ms' }}>
           <a href="#contact" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center gap-2">
@@ -283,12 +321,12 @@ export default function Portfolio() {
             <UserIcon /> Professional Summary
           </h2>
           <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-4xl">
-            ATS optimized Software Engineer, Cloud Engineer, and DevSecOps Specialist with <span className="text-slate-100 font-semibold underline decoration-blue-500/50 underline-offset-4">5+ years</span> of professional experience delivering scalable, secure, and high availability systems. Strong background in full stack development, cloud infrastructure, CI/CD automation, and cybersecurity best practices.
+            Full-Stack Web Developer with <span className="text-slate-100 font-semibold underline decoration-blue-500/50 underline-offset-4">5+ years</span> building scalable web applications using React, Next.js, Vue.js, PHP, and Python. Experienced in AWS cloud deployment, Terraform IaC, Docker CI/CD pipelines, REST API design, OWASP-aligned security, and WordPress CMS. Delivered <span className="text-slate-100 font-semibold">10+ production websites</span> across fintech, education, e-commerce, and NGO sectors. Certified Google Cloud DevSecOps Professional (May 2026).
           </p>
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             {[
               { label: "Experience", value: "5+ Years", icon: Briefcase },
-              { label: "Completed Projects", value: "20+", icon: Layout },
+              { label: "Production Projects", value: "10+", icon: Layout },
               { label: "Availability", value: "Full-time / Remote", icon: Globe },
             ].map((stat, i) => (
               <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 reveal-item reveal-hidden" style={{ transitionDelay: `${(i + 1) * 200}ms` }}>
@@ -306,7 +344,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-4xl font-bold mb-4">Core Technical Expertise</h2>
-            <p className="text-slate-400">A comprehensive toolkit for modern application delivery</p>
+            <p className="text-slate-400">A comprehensive toolkit for modern, secure application delivery</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(SKILLS).map(([category, items], i) => (
@@ -337,7 +375,7 @@ export default function Portfolio() {
                 <div className="w-4 h-4 rounded-full bg-blue-500 group-hover:animate-ping" />
               </div>
               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass hover:border-blue-500/20 transition-all">
-                <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center justify-between mb-1 flex-wrap gap-2">
                   <div className="font-bold text-lg text-slate-100">{exp.role}</div>
                   <time className="text-sm font-medium text-blue-400">{exp.period}</time>
                 </div>
@@ -375,18 +413,14 @@ export default function Portfolio() {
               <h3 className="text-xl font-bold mb-4 text-purple-400 flex items-center gap-2">
                 <Users size={20} /> Mentorship
               </h3>
-              <p className="text-slate-400 leading-relaxed">
-                {LEADERSHIP.Mentorship}
-              </p>
+              <p className="text-slate-400 leading-relaxed">{LEADERSHIP.Mentorship}</p>
             </div>
 
             <div className="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition-colors">
               <h3 className="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
                 <Globe size={20} /> Thought Leadership
               </h3>
-              <p className="text-slate-400 leading-relaxed">
-                {LEADERSHIP["Thought Leadership"]}
-              </p>
+              <p className="text-slate-400 leading-relaxed">{LEADERSHIP["Thought Leadership"]}</p>
             </div>
           </div>
         </div>
@@ -398,7 +432,7 @@ export default function Portfolio() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
             <div>
               <h2 className="text-4xl font-bold mb-4">Selected Projects</h2>
-              <p className="text-slate-400">A showcase of production-ready digital solutions</p>
+              <p className="text-slate-400">Production-ready digital solutions across 10+ industries</p>
             </div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -414,7 +448,7 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <div className="flex gap-2 mb-4">
+                  <div className="flex gap-2 mb-4 flex-wrap">
                     {project.tags.map(tag => (
                       <span key={tag} className="text-[10px] uppercase tracking-widest text-blue-400 font-bold px-2 py-1 bg-blue-400/10 rounded">
                         {tag}
@@ -422,9 +456,7 @@ export default function Portfolio() {
                     ))}
                   </div>
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-slate-400 text-sm mb-6 line-clamp-3">
-                    {project.description}
-                  </p>
+                  <p className="text-slate-400 text-sm mb-6 line-clamp-3">{project.description}</p>
                   <a href={project.link} target="_blank" className="inline-flex items-center gap-2 text-sm font-bold text-slate-100 hover:text-blue-400 transition-colors">
                     View Project <ExternalLink size={14} />
                   </a>
@@ -441,16 +473,14 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
             <Award className="text-blue-400" /> Certifications
           </h2>
-          <ul className="space-y-4">
-            {[
-              "CompTIA A+, Network+, Server+",
-              "NIIT Diploma in Network & IT (DNIIT)",
-              "Windows Server Admin (Microsoft)",
-              "Full Stack Web Development (La Colina)",
-              "DevSecOps Specialist (Google Cloud)"
-            ].map((cert, i) => (
-              <li key={i} className="flex items-center gap-3 text-slate-400">
-                <ChevronRight size={16} className="text-blue-500" /> {cert}
+          <ul className="space-y-3">
+            {CERTIFICATIONS.map((cert, i) => (
+              <li key={i} className="flex items-start justify-between gap-4 text-slate-400 border-b border-white/5 pb-3">
+                <div className="flex items-start gap-3">
+                  <ChevronRight size={16} className="text-blue-500 shrink-0 mt-0.5" />
+                  <span className={i === 0 ? "text-green-400 font-semibold" : ""}>{cert.name}</span>
+                </div>
+                <span className={`text-xs shrink-0 font-medium ${i === 0 ? "text-green-400" : "text-slate-500"}`}>{cert.date}</span>
               </li>
             ))}
           </ul>
@@ -461,7 +491,7 @@ export default function Portfolio() {
           </h2>
           <div className="glass p-8 rounded-2xl">
             <h3 className="text-xl font-bold mb-2">B.Sc. Computer Science</h3>
-            <p className="text-slate-400 mb-1">Esae Benin University, Cotonou</p>
+            <p className="text-slate-400 mb-1">Esae Benin University, Cotonou, Benin Republic</p>
             <p className="text-sm text-purple-400 font-medium">Graduated 2021</p>
           </div>
         </div>
@@ -470,8 +500,8 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-24 px-6 bg-slate-950 border-t border-slate-900 reveal-hidden">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Let&apos;s Build Something Secure</h2>
-          <p className="text-slate-400 mb-12">I&apos;m currently available for freelance projects and full-time opportunities.</p>
+          <h2 className="text-4xl font-bold mb-4">Let&apos;s Build Something Great</h2>
+          <p className="text-slate-400 mb-12">Available for freelance projects and full-time remote opportunities.</p>
 
           <div className="grid md:grid-cols-2 gap-12 text-left">
             <div className="space-y-8">
@@ -487,6 +517,13 @@ export default function Portfolio() {
                 <div>
                   <div className="text-sm text-slate-500">Call / WhatsApp</div>
                   <div className="font-bold">+234 809 392 4896</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="p-4 glass rounded-2xl text-blue-400"><Globe /></div>
+                <div>
+                  <div className="text-sm text-slate-500">Portfolio</div>
+                  <div className="font-bold">oluwaseun.nexa.ng</div>
                 </div>
               </div>
             </div>
@@ -505,7 +542,7 @@ export default function Portfolio() {
                 name="message" placeholder="Project Details" rows={4} value={form.message} onChange={handleChange} required
               />
               <button type="submit" className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
-                Send Message <ArrowRight size={18} />
+                Send via WhatsApp <ArrowRight size={18} />
               </button>
             </form>
           </div>
@@ -519,7 +556,7 @@ export default function Portfolio() {
           <a href="#projects" className="hover:text-blue-400">Projects</a>
           <a href="#contact" className="hover:text-blue-400">Contact</a>
         </div>
-        <p>&copy; {new Date().getFullYear()} Oluwaseun Adeolu Okunola. Professional Software Engineering.</p>
+        <p>&copy; {new Date().getFullYear()} Oluwaseun Adeolu Okunola. Full-Stack Web Developer & Cloud DevSecOps Specialist.</p>
       </footer>
     </div>
   );
@@ -530,6 +567,7 @@ function SkillIcon({ category }: { category: string }) {
     case "Programming": return <Code size={20} />;
     case "Frontend": return <Layout size={20} />;
     case "Backend": return <Server size={20} />;
+    case "CMS & Testing": return <Zap size={20} />;
     case "Cloud & DevOps": return <Cloud size={20} />;
     case "DevSecOps": return <ShieldAlert size={20} />;
     case "Databases": return <Database size={20} />;
