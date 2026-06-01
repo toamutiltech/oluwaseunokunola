@@ -132,15 +132,16 @@ const LEADERSHIP = {
 
 const CERTIFICATIONS = [
   { name: "Google Cloud DevSecOps Professional", date: "May 2026" },
-  { name: "CompTIA A+", date: "2020" },
-  { name: "CompTIA Network+", date: "2020" },
-  { name: "CompTIA Server+", date: "2020" },
-  { name: "Diploma in Network & IT (DNIIT) — NIIT Abuja", date: "2019" },
-  { name: "Full-Stack Web Development — La Colina Tech Hub", date: "2018" },
-  { name: "Git — Simplilearn", date: "2022" },
-  { name: "Scrum Basics — Mindluster", date: "2021" },
-  { name: "Windows Server Configuration & Administration", date: "2020" },
-  { name: "HTML/CSS — TemplateMonster", date: "2020" },
+  { name: "DNIIT CompTIA A+", date: "2015" },
+  { name: "DNIIT CompTIA Network+", date: "2015" },
+  { name: "DNIIT CompTIA Server+", date: "2015" },
+  { name: "Diploma in Network & IT (DNIIT) — NIIT Abuja", date: "2015" },
+  { name: "Full-Stack Web Development — La Colina Tech Hub", date: "2023" },
+  { name: "Git — Simplilearn", date: "2023" },
+  { name: "Scrum Basics — Mindluster", date: "2023" },
+  { name: "DNIIT Windows Server Configuration & Administration", date: "2015" },
+  { name: "HTML/CSS — TemplateMonster", date: "2019" },
+  { name: "Mobile App Development - La Colina Tech Hub ", date: "2023" },
 ];
 
 export default function Portfolio() {
@@ -305,7 +306,7 @@ export default function Portfolio() {
           <a href="#contact" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center gap-2">
             Hire Me <ArrowRight size={18} />
           </a>
-          <a href="/OLUWASEUN_ADEOLU_OKUNOLA_CV.pdf" download className="px-8 py-3 glass hover:bg-white/10 rounded-full font-semibold transition-all flex items-center gap-2">
+          <a href="/Oluwaseun_Okunola_CV_ATS_Optimized.pdf" download className="px-8 py-3 glass hover:bg-white/10 rounded-full font-semibold transition-all flex items-center gap-2">
             Resume <Download size={18} />
           </a>
         </div>
@@ -523,7 +524,7 @@ export default function Portfolio() {
                 <div className="p-4 glass rounded-2xl text-blue-400"><Globe /></div>
                 <div>
                   <div className="text-sm text-slate-500">Portfolio</div>
-                  <div className="font-bold">oluwaseun.nexa.ng</div>
+                  <div className="font-bold">oluwaseun.toamultitech.tech</div>
                 </div>
               </div>
             </div>
