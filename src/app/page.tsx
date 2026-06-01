@@ -78,7 +78,7 @@ const PROJECTS = [
     title: "CYMS",
     description: "The Committee of Youths on Mobilization and Sensitization (CYMS) is a dedicated umbrella for vibrant, energetic Nigerian youths committed to promoting national development.",
     image: "/images/CYMS.png",
-    link: "https://CYMS.png/",
+    link: "https://cyms.org.ng/",
     tags: ["PHP", "WordPress", "SEO"]
   }
 ];

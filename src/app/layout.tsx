@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Oluwaseun Adeolu Okunola | Full-Stack Developer & DevOps Expert",
     description:
       "View the professional portfolio of Oluwaseun Adeolu Okunola, showcasing modern, secure, and scalable web development.",
-    url: "https://oluwaseun.nexa.ng", // Replace with your domain
+    url: "https://oluwaseun.toamultitech.tech", // Replace with your domain
     siteName: "Oluwaseun Adeolu Okunola Portfolio",
     images: [
       {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["/images/seun.jpg"],
     creator: "@toamutiltech", // Optional
   },
-  metadataBase: new URL("https://oluwaseun.nexa.ng"), // Replace with your domain
+  metadataBase: new URL("https://oluwaseun.toamultitech.tech"), // Replace with your domain
 };
 
 export default function RootLayout({
