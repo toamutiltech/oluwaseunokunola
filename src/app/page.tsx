@@ -84,11 +84,12 @@ const PROJECTS = [
 ];
 
 const SKILLS = {
-  "Programming": ["JavaScript (ES6+)", "PHP", "Python", "TypeScript", "C++", "C"],
-  "Frontend": ["React.js", "Next.js", "Vue.js", "Angular", "HTML5", "CSS3"],
-  "Backend": ["Flask", "REST APIs", "Node.js", "MVC Architecture", "Auth & Authz"],
+  "Programming": ["JavaScript (ES6+)", "TypeScript", "PHP", "Python", "SQL", "C++", "C"],
+  "Frontend": ["React.js", "Next.js", "Vue.js", "Angular", "Bootstrap", "Tailwind CSS", "HTML5", "CSS3"],
+  "Backend": ["Node.js", "Flask", "REST APIs", "MVC Architecture", "Auth & Authz"],
+  "Architecture & SaaS": ["Software Architecture", "SaaS Development", "Enterprise Software", "ERP Development", "API Integration"],
   "CMS & Testing": ["WordPress", "Strapi", "PyTest", "Jest"],
-  "Cloud & DevOps": ["AWS", "GCP", "Docker", "Terraform (IaC)", "CI/CD", "Git", "Linux", "Bash"],
+  "Cloud & DevOps": ["AWS", "Google Cloud Platform", "Docker", "Terraform (IaC)", "CI/CD", "Git", "Linux", "Bash"],
   "DevSecOps": ["OWASP", "Secure SDLC", "Security as Code", "Policy as Code", "RBAC", "Zero Trust", "Risk Management"],
   "Databases": ["MySQL", "PostgreSQL", "SQLite", "DB Optimization"]
 };
@@ -96,9 +97,15 @@ const SKILLS = {
 const EXPERIENCE = [
   {
     company: "Toa Multi Tech",
-    role: "Lead Software Engineer",
-    period: "2025 – Present",
-    desc: "Architected full-stack web apps using React, Next.js, and Flask REST APIs for scalable cloud deployment. Implemented Terraform IaC, Docker CI/CD pipelines, and OWASP-aligned security best practices."
+    role: "Founder & Lead Software Engineer",
+    period: "September 2024 – Present",
+    desc: "Lead a software engineering team delivering production-ready SaaS and enterprise platforms. Architected full-stack web apps using React, Next.js, and Flask REST APIs. Implemented Terraform IaC, Docker CI/CD pipelines, and OWASP-aligned security best practices."
+  },
+  {
+    company: "Committee of Youth on Mobilization and Sensitization (CYMS)",
+    role: "ICT Officer",
+    period: "January 2026 – Present",
+    desc: "Lead ICT strategy and digital transformation initiatives for a national youth-focused organization. Provide technical leadership on software systems, cloud services, cybersecurity, and IT operations."
   },
   {
     company: "La Colina Five Technologies",
@@ -121,13 +128,14 @@ const EXPERIENCE = [
 ];
 
 const LEADERSHIP = {
-  "Team Leadership": [
+  "Product Strategy & Engineering": [
+    "Toa Multi Tech — Founder leading software architecture, full-stack development, and product delivery.",
     "EduEntryShield — Education security platform reducing impersonation and enhancing school safety.",
     "My Invoice System — Cloud-ready PHP invoicing platform with OWASP-aligned authentication.",
     "Bizapplive — Customer care application built with Python, Flask, REST APIs, and PyTest-tested backend."
   ],
   "Mentorship": "Actively mentor junior developers through code reviews focused on OWASP security, clean architecture, and career guidance.",
-  "Thought Leadership": "Regularly share insights on software engineering, DevSecOps, cloud infrastructure, and leadership via LinkedIn."
+  "Thought Leadership": "Collaborate directly with business owners to transform operational challenges into scalable software solutions. Regularly share insights on software engineering, DevSecOps, and cloud infrastructure."
 };
 
 const CERTIFICATIONS = [
@@ -190,7 +198,7 @@ export default function Portfolio() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const phone = "2348093924896";
+    const phone = "2348139669156";
     const message = `Hello, my name is ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -272,7 +280,7 @@ export default function Portfolio() {
           <a href="https://github.com/toamutiltech" target="_blank" className="p-2 glass rounded-full hover:text-blue-400 transition-all hover:scale-110">
             <Github size={20} />
           </a>
-          <a href="https://wa.me/2348093924896" target="_blank" className="p-2 glass rounded-full hover:text-green-400 transition-all hover:scale-110">
+          <a href="https://wa.me/2348139669156" target="_blank" className="p-2 glass rounded-full hover:text-green-400 transition-all hover:scale-110">
             <Phone size={20} />
           </a>
         </div>
@@ -290,10 +298,10 @@ export default function Portfolio() {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-center mb-4 tracking-tight leading-tight reveal-item reveal-hidden" style={{ transitionDelay: '600ms' }}>
-          Oluwaseun <span className="text-gradient">Okunola</span>
+          Oluwaseun Adeolu <span className="text-gradient">Okunola</span>
         </h1>
         <p className="text-xl md:text-2xl text-slate-400 text-center max-w-2xl mb-8 font-light reveal-item reveal-hidden" style={{ transitionDelay: '800ms' }}>
-          Full-Stack Web Developer | <span className="text-blue-400">Cloud</span> & <span className="text-purple-400">DevSecOps</span> Specialist
+          Software Engineer | <span className="text-blue-400">SaaS Product Builder</span> | <span className="text-purple-400">DevSecOps Specialist</span>
         </p>
 
         {/* Credential badge */}
@@ -322,7 +330,7 @@ export default function Portfolio() {
             <UserIcon /> Professional Summary
           </h2>
           <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-4xl">
-            Full-Stack Web Developer with <span className="text-slate-100 font-semibold underline decoration-blue-500/50 underline-offset-4">5+ years</span> building scalable web applications using React, Next.js, Vue.js, PHP, and Python. Experienced in AWS cloud deployment, Terraform IaC, Docker CI/CD pipelines, REST API design, OWASP-aligned security, and WordPress CMS. Delivered <span className="text-slate-100 font-semibold">10+ production websites</span> across fintech, education, e-commerce, and NGO sectors. Certified Google Cloud DevSecOps Professional (May 2026).
+            Software Engineer and Founder with over <span className="text-slate-100 font-semibold underline decoration-blue-500/50 underline-offset-4">5+ years</span> of experience designing, building, and deploying scalable SaaS platforms, ERP systems, and cloud-based applications. Proficient in React, Next.js, Vue.js, PHP, and Python. Experienced in AWS and Google Cloud deployments, Terraform IaC, Docker CI/CD pipelines, REST API design, and OWASP-aligned security. Proven track record of delivering production-ready solutions for businesses, educational institutions, NGOs, and commercial organizations. Certified Google Cloud DevSecOps Professional.
           </p>
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             {[
@@ -397,10 +405,10 @@ export default function Portfolio() {
               <Users size={120} className="text-blue-500" />
             </div>
             <h3 className="text-2xl font-bold mb-6 text-blue-400 flex items-center gap-3">
-              <Award size={24} /> Team Leadership
+              <Award size={24} /> Product Strategy & Engineering
             </h3>
             <ul className="space-y-4">
-              {LEADERSHIP["Team Leadership"].map((item, i) => (
+              {LEADERSHIP["Product Strategy & Engineering"].map((item, i) => (
                 <li key={i} className="flex gap-3 text-slate-400">
                   <ChevronRight size={18} className="text-blue-500 shrink-0 mt-1" />
                   <span className="leading-relaxed">{item}</span>
