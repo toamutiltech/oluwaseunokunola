@@ -314,7 +314,7 @@ export default function Portfolio() {
           <a href="#contact" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center gap-2">
             Hire Me <ArrowRight size={18} />
           </a>
-          <a href="/Oluwaseun_Okunola_CV_ATS_Optimized.pdf" download className="px-8 py-3 glass hover:bg-white/10 rounded-full font-semibold transition-all flex items-center gap-2">
+          <a href="/Oluwaseun-Adeolu-Okunola-International-CV.pdf" download className="px-8 py-3 glass hover:bg-white/10 rounded-full font-semibold transition-all flex items-center gap-2">
             Resume <Download size={18} />
           </a>
         </div>
