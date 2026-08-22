@@ -17,7 +17,7 @@ describe("DevTerminal Component", () => {
     const input = screen.getByRole("textbox");
 
     await user.type(input, "help{enter}");
-    expect(screen.getByText(/Available CLI Commands/i)).toBeInTheDocument();
+    expect(screen.getByText(/Available Commands:/i)).toBeInTheDocument();
   });
 
   it("executes whoami, skills, projects, and clear commands", async () => {
@@ -28,15 +28,15 @@ describe("DevTerminal Component", () => {
     const input = screen.getByRole("textbox");
 
     await user.type(input, "whoami{enter}");
-    expect(screen.getByText(/Oluwaseun Adeolu Okunola/i)).toBeInTheDocument();
+    expect(screen.getByText(/Senior Full-Stack Engineer/i)).toBeInTheDocument();
 
     await user.type(input, "skills{enter}");
-    expect(screen.getByText(/Core Technical Skills/i)).toBeInTheDocument();
+    expect(screen.getByText(/TypeScript/i)).toBeInTheDocument();
 
     await user.type(input, "projects{enter}");
-    expect(screen.getByText(/Featured Production Projects/i)).toBeInTheDocument();
+    expect(screen.getByText(/EduEntryShield/i)).toBeInTheDocument();
 
     await user.type(input, "clear{enter}");
-    expect(screen.queryByText(/Core Technical Skills/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/EduEntryShield/i)).not.toBeInTheDocument();
   });
 });
