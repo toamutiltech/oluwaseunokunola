@@ -31,7 +31,7 @@ describe("CommandPalette Component", () => {
     const input = screen.getByPlaceholderText("Type a command or search sections...");
 
     await user.type(input, "Projects");
-    expect(screen.getByText("Jump to Projects Section")).toBeInTheDocument();
+    expect(screen.getByText("Jump to Selected Projects")).toBeInTheDocument();
   });
 
   it("closes modal overlay on Escape key press", () => {
