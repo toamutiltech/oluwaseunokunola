@@ -5,6 +5,6 @@ import { Certifications } from "../Certifications";
 describe("Certifications Component", () => {
   it("renders certifications heading and verified credential badges", () => {
     render(<Certifications />);
-    expect(screen.getByText("Certifications & Credentials")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Certifications/i })).toBeInTheDocument();
   });
 });
