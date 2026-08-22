@@ -1,0 +1,40 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop, "chore/*", "feat/*", "fix/*", "refactor/*" ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality-gate:
+    name: Quality & Verification Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Code Quality & Lint Check
+        run: npm run lint
+
+      - name: Type Safety Verification
+        run: npm run typecheck
+
+      - name: Run Test Suite
+        run: npm test
+
+      - name: Security Vulnerability Audit
+        run: npm audit --audit-level=high
+
+      - name: Production Build Verification
+        run: npm run build
