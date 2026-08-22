@@ -1,73 +1,171 @@
-# Oluwaseun Adeolu Okunola - Portfolio
+# Oluwaseun Adeolu Okunola — Engineering Showcase & Portfolio
 
-Welcome to the personal portfolio website of **Oluwaseun Adeolu Okunola**, a Full-Stack Developer and DevOps Expert. This site showcases my professional experience, technical skills, leadership roles, certifications, and highlighted projects.
+[![CI Pipeline](https://github.com/toamutiltech/oluwaseun/actions/workflows/ci.yml/badge.svg)](https://github.com/toamutiltech/oluwaseun/actions/workflows/ci.yml)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Vitest](https://img.shields.io/badge/Tested%20with-Vitest-yellow?style=flat&logo=vitest)](https://vitest.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🌐 Live Site
-You can view the live version of this portfolio here: [oluwaseun.toamultitech.tech](https://oluwaseun.toamultitech.tech) *(Make sure to update if domain changes)*
-
-## ✨ Key Features
-
-- **Modern & Responsive UI**: Built with Next.js and Tailwind CSS, featuring a sleek dark-mode aesthetic with interactive "glassmorphism" navigation.
-- **Dynamic Background Effects**: A custom radial gradient follows the user's cursor for an engaging, interactive experience.
-- **Project Showcase**: A detailed grid highlighting key professional works such as Stockara, My Invoice System, EduEntryShield, and more.
-- **Skills Matrix**: Categorized technical expertise across Programming, Frontend, Backend, DevSecOps, Cloud & DevOps, and Databases.
-- **Experience Timeline**: A chronological layout of my professional journey as a Lead Software Engineer and IT Consultant.
-- **WhatsApp Integration**: The contact form directly interfaces with the WhatsApp API for instant, seamless communication.
-- **SEO Optimized**: Fully configured Open Graph metadata and Twitter cards for optimal search engine visibility and social sharing.
-
-## 🛠 Tech Stack
-
-- **Framework**: [Next.js](https://nextjs.org/) (React 19)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Language**: TypeScript
-
-## 🚀 Getting Started
-
-To run this project locally, follow these steps:
-
-### Prerequisites
-Make sure you have Node.js and npm/yarn/pnpm installed on your machine.
-
-### Installation
-
-1. **Clone the repository** (if you haven't already):
-   ```bash
-   git clone <repository-url>
-   cd oluwaseun
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Run the development server**:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. **View the site**:
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 📂 Project Structure
-
-- `src/app/layout.tsx`: Contains global layout components, HTML skeleton, and comprehensive SEO metadata.
-- `src/app/page.tsx`: The main landing page encompassing the Hero, About, Skills, Experience, Leadership, Projects, and Contact sections.
-- `src/app/globals.css`: Global stylesheet featuring Tailwind directives and custom CSS variables for the interactive background.
-- `public/images/`: Stores all static assets, project screenshots, and the user's profile image (`seun.jpg`).
-
-## 🤝 Let's Connect
-
-Feel free to reach out to me for collaboration, consulting, or software engineering opportunities!
-- **Email**: Via the contact form on the site.
-- **WhatsApp**: Directly through the site's submission form.
-- **LinkedIn/Github**: Links provided in the hero section.
+A production-grade, highly optimized, and modular Next.js application showcasing software engineering expertise, SaaS products, DevSecOps certifications, and technical projects.
 
 ---
 
-*Designed and engineered by Oluwaseun Adeolu Okunola.*
+## 🏗 Architecture & Design System
+
+The application follows a decoupled component-driven architecture separating **Data**, **Types**, **Presentation Logic**, and **Layout Composition**:
+
+```
+Client Browser
+      │
+      ▼
+ Next.js App Router (src/app/page.tsx - Composition Container)
+      │
+      ├── Navigation Section (src/components/sections/Navigation.tsx)
+      ├── Hero Section       (src/components/sections/Hero.tsx)
+      ├── About Section      (src/components/sections/About.tsx)
+      ├── Skills Section     (src/components/sections/Skills.tsx)
+      ├── Experience Section (src/components/sections/Experience.tsx)
+      ├── Leadership Section (src/components/sections/Leadership.tsx)
+      ├── Projects Section   (src/components/sections/Projects.tsx)
+      ├── Certs Section      (src/components/sections/Certifications.tsx)
+      └── Contact Section    (src/components/sections/Contact.tsx)
+            │
+            ▼
+    Typed Data Modules (src/data/*.ts + src/types/*.ts)
+```
+
+---
+
+## 🛠 Technology Stack
+
+- **Framework**: Next.js 15 (App Router with Turbopack)
+- **Library**: React 19
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4 & Glassmorphism design tokens
+- **Icons**: Lucide React
+- **Testing**: Vitest + React Testing Library (`@testing-library/react`)
+- **CI/CD**: GitHub Actions (`.github/workflows/ci.yml`) & Dependabot
+- **Containerization**: Docker multi-stage build
+
+---
+
+## 📁 Repository Structure
+
+```
+oluwaseun/
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml             # GitHub Actions Quality Pipeline
+│   └── dependabot.yml         # Automated dependency monitoring
+├── public/                    # Static assets & images
+│   ├── images/
+│   └── Oluwaseun-Adeolu-Okunola-International-CV.pdf
+├── src/
+│   ├── app/
+│   │   ├── __tests__/         # Component & Integration test suites
+│   │   │   └── page.test.tsx
+│   │   ├── globals.css        # Core styling & glassmorphism tokens
+│   │   ├── layout.tsx         # Root layout & SEO Metadata
+│   │   └── page.tsx           # Page composition container (< 100 lines)
+│   ├── components/
+│   │   └── sections/          # Decomposed UI section components
+│   │       ├── About.tsx
+│   │       ├── Certifications.tsx
+│   │       ├── Contact.tsx
+│   │       ├── Experience.tsx
+│   │       ├── Footer.tsx
+│   │       ├── Hero.tsx
+│   │       ├── Leadership.tsx
+│   │       ├── Navigation.tsx
+│   │       ├── Projects.tsx
+│   │       └── Skills.tsx
+│   ├── data/                  # Decoupled portfolio data modules
+│   │   ├── certifications.ts
+│   │   ├── experience.ts
+│   │   ├── leadership.ts
+│   │   ├── projects.ts
+│   │   └── skills.ts
+│   └── types/                 # Strict TypeScript interface definitions
+│       ├── certification.ts
+│       ├── experience.ts
+│       ├── leadership.ts
+│       ├── project.ts
+│       └── skill.ts
+├── .env.example               # Environment variables specification
+├── .gitignore
+├── CONTRIBUTING.md            # Contribution guidelines & Git rules
+├── CHANGELOG.md               # Versioning history
+├── Dockerfile                 # Production multi-stage Docker build
+├── package.json
+├── tsconfig.json
+├── vitest.config.ts           # Vitest configuration
+└── vitest.setup.ts            # DOM mock setup for testing
+```
+
+---
+
+## 🚀 Getting Started (Fresh Clone Verification)
+
+### Requirements
+- **Node.js**: `v20.x` or higher
+- **npm**: `v10.x` or higher
+
+### Installation & Execution
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/toamutiltech/oluwaseun.git
+   cd oluwaseun
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm ci
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🧪 Quality Verification Scripts
+
+| Command | Purpose |
+| :--- | :--- |
+| `npm run dev` | Launch local development server with Turbopack |
+| `npm run build` | Compile Next.js production build |
+| `npm run start` | Run compiled production server |
+| `npm run lint` | Run Next.js & ESLint checks |
+| `npm run typecheck` | Run strict TypeScript compiler verification (`tsc --noEmit`) |
+| `npm test` | Execute Vitest component test suite |
+| `npm run test:watch` | Run Vitest in interactive watch mode |
+
+---
+
+## 🐳 Docker Deployment
+
+To build and run the production container locally:
+
+```bash
+# Build Docker image
+docker build -t oluwaseun-portfolio .
+
+# Run container on port 3000
+docker run -p 3000:3000 oluwaseun-portfolio
+```
+
+---
+
+## 🤝 Contributing & Git Discipline
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming conventions, Conventional Commit formatting rules, and pull request procedures.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
