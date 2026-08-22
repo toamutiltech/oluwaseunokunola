@@ -11,6 +11,8 @@ import { ProjectsSection } from "@/components/sections/Projects";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { CommandPalette } from "@/components/CommandPalette";
+import { DevTerminal } from "@/components/DevTerminal";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -54,7 +56,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-black text-slate-100 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-black text-slate-100 selection:bg-blue-500/30 relative">
       {/* Background Decor */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
@@ -82,6 +84,10 @@ export default function Home() {
       <Certifications />
       <Contact />
       <Footer />
+
+      {/* Interactive Global Widgets */}
+      <CommandPalette />
+      <DevTerminal />
     </div>
   );
 }
