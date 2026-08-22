@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import { DevTerminal } from "../DevTerminal";
@@ -6,14 +6,14 @@ import { DevTerminal } from "../DevTerminal";
 describe("DevTerminal Component", () => {
   it("renders terminal trigger button initially", () => {
     render(<DevTerminal />);
-    expect(screen.getByRole("button", { name: /Developer Terminal/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Dev Terminal/i })).toBeInTheDocument();
   });
 
   it("opens terminal widget and responds to help command", async () => {
     const user = userEvent.setup();
     render(<DevTerminal />);
 
-    await user.click(screen.getByRole("button", { name: /Developer Terminal/i }));
+    await user.click(screen.getByRole("button", { name: /Dev Terminal/i }));
     const input = screen.getByRole("textbox");
 
     await user.type(input, "help{enter}");
@@ -24,7 +24,7 @@ describe("DevTerminal Component", () => {
     const user = userEvent.setup();
     render(<DevTerminal />);
 
-    await user.click(screen.getByRole("button", { name: /Developer Terminal/i }));
+    await user.click(screen.getByRole("button", { name: /Dev Terminal/i }));
     const input = screen.getByRole("textbox");
 
     await user.type(input, "whoami{enter}");

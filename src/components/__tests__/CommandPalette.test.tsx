@@ -1,19 +1,19 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { CommandPalette } from "../CommandPalette";
 
 describe("CommandPalette Component", () => {
   it("renders floating launcher button initially", () => {
     render(<CommandPalette />);
-    expect(screen.getByRole("button", { name: /Quick Navigation/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Command Palette/i })).toBeInTheDocument();
   });
 
   it("opens modal overlay when launcher button is clicked", async () => {
     const user = userEvent.setup();
     render(<CommandPalette />);
     
-    await user.click(screen.getByRole("button", { name: /Quick Navigation/i }));
+    await user.click(screen.getByRole("button", { name: /Command Palette/i }));
     expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
   });
 
