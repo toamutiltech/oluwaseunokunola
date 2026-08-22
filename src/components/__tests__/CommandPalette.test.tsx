@@ -14,13 +14,13 @@ describe("CommandPalette Component", () => {
     render(<CommandPalette />);
     
     await user.click(screen.getByRole("button", { name: /Command Palette/i }));
-    expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
   });
 
   it("opens modal overlay on Cmd+K keyboard shortcut", () => {
     render(<CommandPalette />);
     fireEvent.keyDown(window, { key: "k", metaKey: true });
-    expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
   });
 
   it("filters search results when typing in search input", async () => {
@@ -28,18 +28,18 @@ describe("CommandPalette Component", () => {
     render(<CommandPalette />);
 
     fireEvent.keyDown(window, { key: "k", metaKey: true });
-    const input = screen.getByPlaceholderText("Type a command or search...");
+    const input = screen.getByPlaceholderText("Type a command or search sections...");
 
     await user.type(input, "Projects");
-    expect(screen.getByText("View featured software engineering portfolio projects")).toBeInTheDocument();
+    expect(screen.getByText("Jump to Projects Section")).toBeInTheDocument();
   });
 
   it("closes modal overlay on Escape key press", () => {
     render(<CommandPalette />);
     fireEvent.keyDown(window, { key: "k", metaKey: true });
-    expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
 
     fireEvent.keyDown(window, { key: "Escape" });
-    expect(screen.queryByPlaceholderText("Type a command or search...")).not.toBeInTheDocument();
+    expect(screen.queryByPlaceholderText("Type a command or search sections...")).not.toBeInTheDocument();
   });
 });
