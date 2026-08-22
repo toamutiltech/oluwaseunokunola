@@ -1,7 +1,7 @@
 {
   "name": "oluwaseun",
   "homepage": "https://oluwaseun.toamultitech.tech",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -14,7 +14,8 @@
     "test:coverage": "vitest run --coverage",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "docker:up": "docker compose up --build"
+    "docker:up": "docker compose up --build",
+    "verify:fresh": "bash scripts/verify-fresh-install.sh"
   },
   "dependencies": {
     "lucide-react": "^0.525.0",

@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-08-22
+
+### Added
+- **Next.js Error Boundary Component**: Added `src/app/error.tsx` catching client-side React runtime exceptions with user fallback UI.
+- **Structured Client Logger Utility**: Added `src/lib/logger.ts` formatting error objects for dev console and Sentry integration.
+- **Interactive Command Palette (`Cmd+K`)**: Added `src/components/CommandPalette.tsx` for global search and instant section navigation.
+- **Developer CLI Terminal Widget**: Added `src/components/DevTerminal.tsx` interactive terminal widget (`help`, `whoami`, `skills`, `projects`, `contact`).
+- **Enforced 70% Vitest Coverage Gate**: Configured `coverage.thresholds` (lines: 70, statements: 70, branches: 70, functions: 70) in `vitest.config.ts`.
+- **100% Component Unit Test Breadth**: Added test specs for `About`, `Experience`, `Leadership`, `Certifications`, `Footer`, `CommandPalette`, `DevTerminal`, `logger`, and `validation`.
+- **Fresh Install Verification Script**: Added `scripts/verify-fresh-install.sh` / `.ps1` and `"verify:fresh"` script.
+
 ## [1.0.1] - 2026-08-22
 
 ### Added
