@@ -6,25 +6,40 @@ import { CommandPalette } from "../CommandPalette";
 describe("CommandPalette Component", () => {
   it("renders floating launcher button initially", () => {
     render(<CommandPalette />);
-    expect(screen.getByRole("button", { name: /Command Palette/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Quick Navigation/i })).toBeInTheDocument();
   });
 
   it("opens modal overlay when launcher button is clicked", async () => {
     const user = userEvent.setup();
     render(<CommandPalette />);
-
-    await user.click(screen.getByRole("button", { name: /Command Palette/i }));
-
-    expect(screen.getByPlaceholderText(/Type a command or search/i)).toBeInTheDocument();
-    expect(screen.getByText("Jump to About Section")).toBeInTheDocument();
-    expect(screen.getByText("Download Resume (PDF)")).toBeInTheDocument();
+    
+    await user.click(screen.getByRole("button", { name: /Quick Navigation/i }));
+    expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
   });
 
   it("opens modal overlay on Cmd+K keyboard shortcut", () => {
     render(<CommandPalette />);
+    fireEvent.keyDown(window, { key: "k", metaKey: true });
+    expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
+  });
+
+  it("filters search results when typing in search input", async () => {
+    const user = userEvent.setup();
+    render(<CommandPalette />);
 
     fireEvent.keyDown(window, { key: "k", metaKey: true });
+    const input = screen.getByPlaceholderText("Type a command or search...");
 
-    expect(screen.getByPlaceholderText(/Type a command or search/i)).toBeInTheDocument();
+    await user.type(input, "Projects");
+    expect(screen.getByText("View featured software engineering portfolio projects")).toBeInTheDocument();
+  });
+
+  it("closes modal overlay on Escape key press", () => {
+    render(<CommandPalette />);
+    fireEvent.keyDown(window, { key: "k", metaKey: true });
+    expect(screen.getByPlaceholderText("Type a command or search...")).toBeInTheDocument();
+
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByPlaceholderText("Type a command or search...")).not.toBeInTheDocument();
   });
 });
