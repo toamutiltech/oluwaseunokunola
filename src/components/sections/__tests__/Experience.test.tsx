@@ -6,6 +6,6 @@ describe("ExperienceSection Component", () => {
   it("renders professional experience timeline heading and career roles", () => {
     render(<ExperienceSection />);
     expect(screen.getByText("Professional Journey")).toBeInTheDocument();
-    expect(screen.getByText("Senior Software Engineer")).toBeInTheDocument();
+    expect(screen.getByText("Web Developer")).toBeInTheDocument();
   });
 });

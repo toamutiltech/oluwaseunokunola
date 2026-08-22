@@ -6,6 +6,6 @@ describe("Footer Component", () => {
   it("renders footer copyright and quick navigation links", () => {
     render(<Footer />);
     expect(screen.getByText(/Oluwaseun Adeolu Okunola/i)).toBeInTheDocument();
-    expect(screen.getByText(/All rights reserved/i)).toBeInTheDocument();
+    expect(screen.getByText(/Full-Stack Web Developer/i)).toBeInTheDocument();
   });
 });
