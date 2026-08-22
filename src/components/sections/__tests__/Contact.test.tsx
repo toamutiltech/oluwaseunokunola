@@ -61,7 +61,7 @@ describe("Contact Component", () => {
     await user.click(screen.getByRole("button", { name: /Send via WhatsApp/i }));
 
     expect(openSpy).toHaveBeenCalledWith(
-      expect.stringContaining("https://wa.me/2348139669156"),
+      expect.stringContaining("https://wa.me/2348093924896"),
       "_blank"
     );
   });
