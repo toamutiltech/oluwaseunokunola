@@ -33,7 +33,7 @@ export function Contact() {
     }
 
     setErrors({});
-    const phone = "2348139669156";
+    const phone = "2348093924896";
     const message = `Hello, my name is ${result.data.name}\nEmail: ${result.data.email}\n\n${result.data.message}`;
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
