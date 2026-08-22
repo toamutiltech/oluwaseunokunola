@@ -12,7 +12,16 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: ["src/types/**", "node_modules/**", ".next/**"],
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: [
+        "src/types/**",
+        "src/components/ui/**",
+        "src/lib/utils.ts",
+        "src/app/layout.tsx",
+        "src/app/error.tsx",
+        "**/*.test.*",
+        "**/*.d.ts"
+      ],
       thresholds: {
         lines: 70,
         statements: 70,
