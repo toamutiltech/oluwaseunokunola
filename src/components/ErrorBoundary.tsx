@@ -63,11 +63,10 @@ export class ErrorBoundary extends Component<Props, State> {
               />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-white mb-2">
-            Something went wrong
-          </h2>
+          <h2 className="text-xl font-bold text-white mb-2">Something went wrong</h2>
           <p className="text-sm text-gray-400 max-w-md mb-4">
-            An unforeseen component rendering error occurred. The diagnostic system has recorded this incident.
+            An unforeseen component rendering error occurred. The diagnostic system has recorded
+            this incident.
           </p>
           {this.state.error && (
             <p className="font-mono text-xs text-red-300 bg-red-950/40 p-2 rounded max-w-lg overflow-x-auto mb-4 border border-red-500/20">

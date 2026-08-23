@@ -51,9 +51,7 @@ describe("ErrorBoundary Component", () => {
 
     expect(screen.getByRole("alert")).toBeInTheDocument();
     expect(screen.getByText("Something went wrong")).toBeInTheDocument();
-    expect(
-      screen.getByText("Simulated component render error")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Simulated component render error")).toBeInTheDocument();
   });
 
   it("renders custom fallback node when provided", () => {

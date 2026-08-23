@@ -56,18 +56,15 @@ describe("Contact API Route (/api/contact)", () => {
       await POST(validReq);
     }
 
-    const rateExceededReq = new NextRequest(
-      "http://localhost:3000/api/contact",
-      {
-        method: "POST",
-        headers: { "x-forwarded-for": "192.168.1.50" },
-        body: JSON.stringify({
-          name: "Rate Test User",
-          email: "ratetest@example.com",
-          message: "Testing rate limit threshold implementation.",
-        }),
-      }
-    );
+    const rateExceededReq = new NextRequest("http://localhost:3000/api/contact", {
+      method: "POST",
+      headers: { "x-forwarded-for": "192.168.1.50" },
+      body: JSON.stringify({
+        name: "Rate Test User",
+        email: "ratetest@example.com",
+        message: "Testing rate limit threshold implementation.",
+      }),
+    });
 
     const res = await POST(rateExceededReq);
     expect(res.status).toBe(429);

@@ -1,9 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  successResponse,
-  errorResponse,
-  validationErrorResponse,
-} from "../api-response";
+import { successResponse, errorResponse, validationErrorResponse } from "../api-response";
 
 describe("api-response Utilities", () => {
   it("formats successful JSON response correctly", async () => {

@@ -1,11 +1,7 @@
 import { NextRequest } from "next/server";
 import { contactFormSchema } from "@/lib/validation";
 import { checkRateLimit } from "@/lib/rate-limit";
-import {
-  successResponse,
-  errorResponse,
-  validationErrorResponse,
-} from "@/lib/api-response";
+import { successResponse, errorResponse, validationErrorResponse } from "@/lib/api-response";
 import { logInfo, logError } from "@/lib/logger";
 
 export async function POST(request: NextRequest) {
