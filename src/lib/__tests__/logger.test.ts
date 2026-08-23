@@ -47,4 +47,15 @@ describe("Logger Utility", () => {
     expect(warnPayload.level).toBe("warn");
     expect(warnPayload.message).toBe("High latency detected");
   });
+
+  it("emits structured JSON log lines for custom logEvent", () => {
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+    logEvent("debug", "Custom action performed", { action: "click" });
+
+    expect(logSpy).toHaveBeenCalled();
+    const eventPayload = JSON.parse(logSpy.mock.calls[0][0]);
+    expect(eventPayload.level).toBe("debug");
+    expect(eventPayload.message).toBe("Custom action performed");
+  });
 });

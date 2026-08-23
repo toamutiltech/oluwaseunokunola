@@ -8,6 +8,6 @@ export async function GET() {
       service: "oluwaseun-portfolio",
       uptime: process.uptime(),
     },
-    { status: 200 },
+    { status: 200 }
   );
 }
