@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2026-08-23
+
+### Added
+
+- **Health Check API Route**: Added `src/app/api/health/route.ts` (GET `/api/health`) returning JSON `{ status: "ok", timestamp, service, uptime }` and unit test spec `src/app/api/health/__tests__/route.test.ts`.
+- **Contact Form Popup Blocking Guard**: Added popup blocked error handling in `src/components/sections/Contact.tsx` setting state error alert when `window.open` returns `null`.
+- **Deep Contact Interactive Test Suite**: Added 5 comprehensive unit test cases in `src/components/sections/__tests__/Contact.test.tsx` verifying Zod email validation, name length, valid WhatsApp redirect, and pop-up blocking detection.
+- **Complete Environment Specification**: Updated `.env.example` with `NODE_ENV=development` and documented environment variables in `README.md`.
+- **Commit Discipline Guidelines**: Added explicit Commit Discipline rules in `CONTRIBUTING.md` enforcing co-located features and tests in small focused commits.
+- **CI Pipeline Action SHA Pinning & Parallelization**: Updated `.github/workflows/ci.yml` pinning actions to commit SHAs and splitting execution into parallel `lint-and-typecheck` and `test-and-build` jobs.
+
 ## [1.0.2] - 2026-08-22
 
 ### Added
