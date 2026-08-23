@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, Globe, ArrowRight } from "lucide-react";
+import { Mail, Phone, Globe, ArrowRight, AlertCircle } from "lucide-react";
 import { contactFormSchema } from "@/lib/validation";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -14,10 +15,14 @@ export function Contact() {
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
+    if (submitError) {
+      setSubmitError(null);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     const result = contactFormSchema.safeParse(form);
 
     if (!result.success) {
@@ -36,7 +41,15 @@ export function Contact() {
     const phone = "2348093924896";
     const message = `Hello, my name is ${result.data.name}\nEmail: ${result.data.email}\n\n${result.data.message}`;
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+
+    try {
+      const popup = window.open(whatsappUrl, "_blank");
+      if (!popup) {
+        setSubmitError("Pop-up blocked! Please allow pop-ups to open WhatsApp.");
+      }
+    } catch {
+      setSubmitError("Pop-up blocked! Please allow pop-ups to open WhatsApp.");
+    }
   };
 
   return (
@@ -82,6 +95,16 @@ export function Contact() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+            {submitError && (
+              <div
+                role="alert"
+                className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-center gap-2"
+              >
+                <AlertCircle size={16} />
+                <span>{submitError}</span>
+              </div>
+            )}
+
             <div>
               <input
                 className={`w-full bg-white/5 border ${errors.name ? "border-red-500" : "border-white/10"} p-4 rounded-xl focus:outline-none focus:border-blue-500 transition-colors`}

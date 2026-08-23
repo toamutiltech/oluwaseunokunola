@@ -53,7 +53,8 @@ describe("Contact Component", () => {
 
   it("successfully validates and triggers WhatsApp URL redirect for valid input", async () => {
     const user = userEvent.setup();
-    const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
+    const mockWindow = {} as Window;
+    const openSpy = vi.spyOn(window, "open").mockImplementation(() => mockWindow);
 
     render(<Contact />);
 
@@ -70,5 +71,25 @@ describe("Contact Component", () => {
       expect.stringContaining("https://wa.me/2348093924896"),
       "_blank"
     );
+  });
+
+  it("shows pop-up blocked error message when window.open returns null", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(window, "open").mockImplementation(() => null);
+
+    render(<Contact />);
+
+    await user.type(screen.getByPlaceholderText("Name"), "Oluwaseun");
+    await user.type(screen.getByPlaceholderText("Email"), "oluwaseun@example.com");
+    await user.type(
+      screen.getByPlaceholderText("Project Details"),
+      "Looking for software architecture consulting."
+    );
+
+    await user.click(screen.getByRole("button", { name: /Send via WhatsApp/i }));
+
+    expect(
+      await screen.findByText("Pop-up blocked! Please allow pop-ups to open WhatsApp.")
+    ).toBeInTheDocument();
   });
 });
