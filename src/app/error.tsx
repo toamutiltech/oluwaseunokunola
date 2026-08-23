@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
-import { logError } from '@/lib/logger';
+import { useEffect } from "react";
+import { AlertTriangle, RefreshCw } from "lucide-react";
+import { logError } from "@/lib/logger";
 
 export default function GlobalError({
   error,
@@ -24,7 +24,8 @@ export default function GlobalError({
         <div className="space-y-2">
           <h2 className="text-2xl font-bold">Unexpected Application Error</h2>
           <p className="text-sm text-slate-400">
-            An error occurred while rendering this component. Our monitoring system has logged the details.
+            An error occurred while rendering this component. Our monitoring system has logged the
+            details.
           </p>
         </div>
         <button

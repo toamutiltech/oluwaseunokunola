@@ -5,7 +5,9 @@ import { Hero } from "../Hero";
 describe("Hero Component", () => {
   it("renders engineer name, title credentials and hire me button", () => {
     render(<Hero />);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Oluwaseun Adeolu Okunola/i);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+      /Oluwaseun Adeolu Okunola/i
+    );
     expect(screen.getByText(/Software Engineer/i)).toBeInTheDocument();
     expect(screen.getByText(/SaaS Product Builder/i)).toBeInTheDocument();
     expect(screen.getByText(/DevSecOps Specialist/i)).toBeInTheDocument();

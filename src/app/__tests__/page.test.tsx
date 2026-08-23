@@ -10,7 +10,9 @@ describe("Homepage", () => {
 
   it("renders the hero section with name and title", () => {
     render(<Home />);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Oluwaseun Adeolu Okunola/i);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+      /Oluwaseun Adeolu Okunola/i
+    );
     expect(screen.getByText(/Full-Stack Web Developer/i)).toBeInTheDocument();
   });
 

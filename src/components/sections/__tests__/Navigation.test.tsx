@@ -5,13 +5,7 @@ import { Navigation } from "../Navigation";
 
 describe("Navigation Component", () => {
   it("renders desktop navigation links", () => {
-    render(
-      <Navigation
-        activeSection="hero"
-        isMenuOpen={false}
-        setIsMenuOpen={vi.fn()}
-      />
-    );
+    render(<Navigation activeSection="hero" isMenuOpen={false} setIsMenuOpen={vi.fn()} />);
 
     const navItems = ["About", "Skills", "Exp", "Leadership", "Projects", "Contact"];
     navItems.forEach((item) => {
@@ -24,11 +18,7 @@ describe("Navigation Component", () => {
     const setIsMenuOpenMock = vi.fn();
 
     render(
-      <Navigation
-        activeSection="hero"
-        isMenuOpen={false}
-        setIsMenuOpen={setIsMenuOpenMock}
-      />
+      <Navigation activeSection="hero" isMenuOpen={false} setIsMenuOpen={setIsMenuOpenMock} />
     );
 
     const toggleButton = screen.getByRole("button", { name: /Toggle Menu/i });
@@ -38,13 +28,7 @@ describe("Navigation Component", () => {
   });
 
   it("renders mobile menu items when isMenuOpen is true", () => {
-    render(
-      <Navigation
-        activeSection="about"
-        isMenuOpen={true}
-        setIsMenuOpen={vi.fn()}
-      />
-    );
+    render(<Navigation activeSection="about" isMenuOpen={true} setIsMenuOpen={vi.fn()} />);
 
     const links = screen.getAllByRole("link", { name: "About" });
     expect(links.length).toBeGreaterThan(1);

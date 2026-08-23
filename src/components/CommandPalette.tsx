@@ -1,64 +1,124 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Search, Command, FileText, Send, X, ExternalLink, Code, Award, User, Briefcase } from 'lucide-react';
+import { useState, useEffect } from "react";
+import {
+  Search,
+  Command,
+  FileText,
+  Send,
+  X,
+  ExternalLink,
+  Code,
+  Award,
+  User,
+  Briefcase,
+} from "lucide-react";
 
 interface CommandItem {
   id: string;
   title: string;
-  category: 'Navigation' | 'Actions' | 'Projects';
+  category: "Navigation" | "Actions" | "Projects";
   icon: React.ReactNode;
   action: () => void;
 }
 
 export function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setIsOpen((prev) => !prev);
       }
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setIsOpen(false);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const items: CommandItem[] = [
-    { id: 'nav-about', title: 'Jump to About Section', category: 'Navigation', icon: <User size={16} />, action: () => scrollTo('about') },
-    { id: 'nav-skills', title: 'Jump to Core Skills', category: 'Navigation', icon: <Code size={16} />, action: () => scrollTo('skills') },
-    { id: 'nav-experience', title: 'Jump to Experience Timeline', category: 'Navigation', icon: <Briefcase size={16} />, action: () => scrollTo('experience') },
-    { id: 'nav-projects', title: 'Jump to Selected Projects', category: 'Navigation', icon: <Code size={16} />, action: () => scrollTo('projects') },
-    { id: 'nav-certs', title: 'Jump to Certifications', category: 'Navigation', icon: <Award size={16} />, action: () => scrollTo('certifications') },
-    { id: 'nav-contact', title: 'Jump to Contact Form', category: 'Navigation', icon: <Send size={16} />, action: () => scrollTo('contact') },
-    { id: 'act-resume', title: 'Download Resume (PDF)', category: 'Actions', icon: <FileText size={16} />, action: () => downloadFile('/resume.pdf') },
-    { id: 'act-whatsapp', title: 'Open Direct WhatsApp Chat', category: 'Actions', icon: <Send size={16} />, action: () => window.open('https://wa.me/2348139669156', '_blank') },
+    {
+      id: "nav-about",
+      title: "Jump to About Section",
+      category: "Navigation",
+      icon: <User size={16} />,
+      action: () => scrollTo("about"),
+    },
+    {
+      id: "nav-skills",
+      title: "Jump to Core Skills",
+      category: "Navigation",
+      icon: <Code size={16} />,
+      action: () => scrollTo("skills"),
+    },
+    {
+      id: "nav-experience",
+      title: "Jump to Experience Timeline",
+      category: "Navigation",
+      icon: <Briefcase size={16} />,
+      action: () => scrollTo("experience"),
+    },
+    {
+      id: "nav-projects",
+      title: "Jump to Selected Projects",
+      category: "Navigation",
+      icon: <Code size={16} />,
+      action: () => scrollTo("projects"),
+    },
+    {
+      id: "nav-certs",
+      title: "Jump to Certifications",
+      category: "Navigation",
+      icon: <Award size={16} />,
+      action: () => scrollTo("certifications"),
+    },
+    {
+      id: "nav-contact",
+      title: "Jump to Contact Form",
+      category: "Navigation",
+      icon: <Send size={16} />,
+      action: () => scrollTo("contact"),
+    },
+    {
+      id: "act-resume",
+      title: "Download Resume (PDF)",
+      category: "Actions",
+      icon: <FileText size={16} />,
+      action: () => downloadFile("/resume.pdf"),
+    },
+    {
+      id: "act-whatsapp",
+      title: "Open Direct WhatsApp Chat",
+      category: "Actions",
+      icon: <Send size={16} />,
+      action: () => window.open("https://wa.me/2348139669156", "_blank"),
+    },
   ];
 
   const scrollTo = (id: string) => {
     setIsOpen(false);
     const elem = document.getElementById(id);
-    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+    if (elem) elem.scrollIntoView({ behavior: "smooth" });
   };
 
   const downloadFile = (url: string) => {
     setIsOpen(false);
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
-    link.download = 'Oluwaseun_Okunola_Resume.pdf';
+    link.download = "Oluwaseun_Okunola_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  const filteredItems = items.filter(item =>
-    item.title.toLowerCase().includes(query.toLowerCase()) ||
-    item.category.toLowerCase().includes(query.toLowerCase())
+  const filteredItems = items.filter(
+    (item) =>
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
+      item.category.toLowerCase().includes(query.toLowerCase())
   );
 
   if (!isOpen) {
@@ -88,14 +148,19 @@ export function CommandPalette() {
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
           />
-          <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white p-1 rounded-lg">
+          <button
+            onClick={() => setIsOpen(false)}
+            className="text-slate-400 hover:text-white p-1 rounded-lg"
+          >
             <X size={18} />
           </button>
         </div>
 
         <div className="max-h-80 overflow-y-auto p-2 space-y-1">
           {filteredItems.length === 0 ? (
-            <div className="p-6 text-center text-sm text-slate-500">No commands found matching &quot;{query}&quot;</div>
+            <div className="p-6 text-center text-sm text-slate-500">
+              No commands found matching &quot;{query}&quot;
+            </div>
           ) : (
             filteredItems.map((item) => (
               <button
@@ -104,7 +169,9 @@ export function CommandPalette() {
                 className="w-full p-3 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-left group"
               >
                 <div className="flex items-center gap-3">
-                  <span className="p-2 glass rounded-lg text-blue-400 group-hover:text-blue-300">{item.icon}</span>
+                  <span className="p-2 glass rounded-lg text-blue-400 group-hover:text-blue-300">
+                    {item.icon}
+                  </span>
                   <div>
                     <div className="text-sm font-semibold text-white">{item.title}</div>
                     <div className="text-[11px] text-slate-500">{item.category}</div>
@@ -118,7 +185,9 @@ export function CommandPalette() {
 
         <div className="p-3 bg-white/5 border-t border-white/5 text-[11px] text-slate-500 flex justify-between items-center px-4">
           <span>Navigate with mouse or keyboard</span>
-          <span>Press <kbd className="px-1 bg-white/10 rounded">ESC</kbd> to exit</span>
+          <span>
+            Press <kbd className="px-1 bg-white/10 rounded">ESC</kbd> to exit
+          </span>
         </div>
       </div>
     </div>

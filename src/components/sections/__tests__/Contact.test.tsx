@@ -24,7 +24,10 @@ describe("Contact Component", () => {
 
     await user.type(screen.getByPlaceholderText("Name"), "Alex");
     await user.type(screen.getByPlaceholderText("Email"), "invalid-email");
-    await user.type(screen.getByPlaceholderText("Project Details"), "This is a valid message detail.");
+    await user.type(
+      screen.getByPlaceholderText("Project Details"),
+      "This is a valid message detail."
+    );
 
     await user.click(screen.getByRole("button", { name: /Send via WhatsApp/i }));
 
@@ -56,7 +59,10 @@ describe("Contact Component", () => {
 
     await user.type(screen.getByPlaceholderText("Name"), "Oluwaseun");
     await user.type(screen.getByPlaceholderText("Email"), "oluwaseun@example.com");
-    await user.type(screen.getByPlaceholderText("Project Details"), "Looking for software architecture consulting.");
+    await user.type(
+      screen.getByPlaceholderText("Project Details"),
+      "Looking for software architecture consulting."
+    );
 
     await user.click(screen.getByRole("button", { name: /Send via WhatsApp/i }));
 

@@ -105,12 +105,15 @@ oluwaseun/
 ## 🚀 Getting Started (One-Command Reproduction)
 
 ### Option 1: One-Command Docker Compose Startup
+
 Run the entire application in a production-ready isolated container:
+
 ```bash
 npm run docker:up
 # OR
 docker compose up --build
 ```
+
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
@@ -118,12 +121,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Option 2: Local Development Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/toamutiltech/oluwaseun.git
    cd oluwaseun
    ```
 
 2. Install dependencies:
+
    ```bash
    npm ci
    ```
@@ -137,16 +142,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🧪 Quality Verification Scripts
 
-| Command | Purpose |
-| :--- | :--- |
-| `npm run dev` | Launch local development server with Turbopack |
-| `npm run build` | Compile Next.js production build |
-| `npm run lint` | Run Next.js & ESLint checks |
-| `npm run typecheck` | Run strict TypeScript compiler verification (`tsc --noEmit`) |
-| `npm test` | Execute Vitest component test suites |
-| `npm run test:coverage` | Run Vitest test coverage audit |
-| `npm run format:check` | Check code formatting with Prettier |
-| `npm run docker:up` | Launch application via Docker Compose on port 3000 |
+| Command                 | Purpose                                                      |
+| :---------------------- | :----------------------------------------------------------- |
+| `npm run dev`           | Launch local development server with Turbopack               |
+| `npm run build`         | Compile Next.js production build                             |
+| `npm run lint`          | Run Next.js & ESLint checks                                  |
+| `npm run typecheck`     | Run strict TypeScript compiler verification (`tsc --noEmit`) |
+| `npm test`              | Execute Vitest component test suites                         |
+| `npm run test:coverage` | Run Vitest test coverage audit                               |
+| `npm run format:check`  | Check code formatting with Prettier                          |
+| `npm run docker:up`     | Launch application via Docker Compose on port 3000           |
 
 ---
 

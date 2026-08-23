@@ -12,7 +12,7 @@ describe("CommandPalette Component", () => {
   it("opens modal overlay when launcher button is clicked", async () => {
     const user = userEvent.setup();
     render(<CommandPalette />);
-    
+
     await user.click(screen.getByRole("button", { name: /Command Palette/i }));
     expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
   });
@@ -40,6 +40,8 @@ describe("CommandPalette Component", () => {
     expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
 
     fireEvent.keyDown(window, { key: "Escape" });
-    expect(screen.queryByPlaceholderText("Type a command or search sections...")).not.toBeInTheDocument();
+    expect(
+      screen.queryByPlaceholderText("Type a command or search sections...")
+    ).not.toBeInTheDocument();
   });
 });

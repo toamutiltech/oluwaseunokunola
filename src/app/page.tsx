@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import { Navigation } from "@/components/sections/Navigation";
@@ -27,10 +27,10 @@ export default function Home() {
     if (!mounted) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
     const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
@@ -47,7 +47,7 @@ export default function Home() {
     }, 100);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       observer.disconnect();
       clearTimeout(timer);
     };
@@ -62,7 +62,7 @@ export default function Home() {
         <div
           className="absolute inset-0 z-0 opacity-30"
           style={{
-            background: `radial-gradient(circle 800px at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.15), transparent 80%)`
+            background: `radial-gradient(circle 800px at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.15), transparent 80%)`,
           }}
         />
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />

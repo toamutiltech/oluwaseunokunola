@@ -29,6 +29,7 @@ We enforce **Conventional Commit** formatting for clear, automated git history:
 ## Development Workflow
 
 1. Clone the repository and install dependencies:
+
    ```bash
    git clone https://github.com/toamutiltech/oluwaseun.git
    cd oluwaseun
@@ -36,11 +37,13 @@ We enforce **Conventional Commit** formatting for clear, automated git history:
    ```
 
 2. Run local development server:
+
    ```bash
    npm run dev
    ```
 
 3. Perform Quality Verification Gate before opening a Pull Request:
+
    ```bash
    npm run lint
    npm run typecheck

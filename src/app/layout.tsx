@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     "Nigeria",
   ],
   icons: {
-    icon: '/images/seun.jpg', // general favicon
-    shortcut: '/images/seun.jpg', // explicitly defines shortcut icon
+    icon: "/images/seun.jpg", // general favicon
+    shortcut: "/images/seun.jpg", // explicitly defines shortcut icon
   },
   authors: [{ name: "Oluwaseun Adeolu Okunola" }],
   creator: "Oluwaseun Adeolu Okunola",
@@ -52,11 +52,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://oluwaseun.toamultitech.tech"), // Replace with your domain
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>

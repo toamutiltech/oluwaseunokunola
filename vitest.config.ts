@@ -20,7 +20,7 @@ export default defineConfig({
         "src/app/layout.tsx",
         "src/app/error.tsx",
         "**/*.test.*",
-        "**/*.d.ts"
+        "**/*.d.ts",
       ],
       thresholds: {
         lines: 70,

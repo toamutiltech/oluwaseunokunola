@@ -14,7 +14,7 @@ export function logError(error: Error, context?: LogContext): void {
     context: context || {},
   };
 
-  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+  if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
     console.error(`[LOGGER ${timestamp}] ${error.name}: ${error.message}`, payload);
   } else {
     // Structured log payload ready for Sentry/Datadog integration
