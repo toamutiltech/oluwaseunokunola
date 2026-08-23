@@ -5,6 +5,6 @@ import { Leadership } from "../Leadership";
 describe("Leadership Component", () => {
   it("renders community leadership heading and organization roles", () => {
     render(<Leadership />);
-    expect(screen.getByText("Leadership & Community Impact")).toBeInTheDocument();
+    expect(screen.getByText("Leadership & Mentorship")).toBeInTheDocument();
   });
 });
