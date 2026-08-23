@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-08-23
+
+### Added
+
+- **Structured JSON Logger Utilities**: Extended `src/lib/logger.ts` to emit structured JSON log entries (`level`, `message`, `timestamp`, `metadata`) and added comprehensive JSON shape assertion unit tests in `src/lib/__tests__/logger.test.ts`.
+- **Reusable Design Token Constants**: Created `src/lib/styles.ts` exporting `GLASS_CARD`, `INPUT_BASE`, `INPUT_ERROR`, `BUTTON_PRIMARY`, `OVERLAY_BACKDROP`, and `MODAL_CONTAINER` Tailwind tokens, refactoring `Contact.tsx` and `CommandPalette.tsx`.
+- **Deep Widget & Component Assertions**: Expanded `src/components/__tests__/CommandPalette.test.tsx` verifying `Ctrl+K` / `Cmd+K` keyboard shortcut opening and item filter narrowing.
+- **Strict Security Vulnerability Audit Pipeline Gating**: Updated `.github/workflows/ci.yml` removing `|| true` so `npm audit --audit-level=high` strictly fails CI PR jobs on high vulnerabilities, after resolving all sub-dependency audit findings to 0.
+
 ## [1.0.3] - 2026-08-23
 
 ### Added
