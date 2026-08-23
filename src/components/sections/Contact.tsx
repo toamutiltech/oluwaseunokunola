@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Mail, Phone, Globe, ArrowRight, AlertCircle } from "lucide-react";
 import { contactFormSchema } from "@/lib/validation";
+import { INPUT_BASE, INPUT_ERROR, BUTTON_PRIMARY } from "@/lib/styles";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -107,7 +108,7 @@ export function Contact() {
 
             <div>
               <input
-                className={`w-full bg-white/5 border ${errors.name ? "border-red-500" : "border-white/10"} p-4 rounded-xl focus:outline-none focus:border-blue-500 transition-colors`}
+                className={errors.name ? INPUT_ERROR : INPUT_BASE}
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -119,7 +120,7 @@ export function Contact() {
 
             <div>
               <input
-                className={`w-full bg-white/5 border ${errors.email ? "border-red-500" : "border-white/10"} p-4 rounded-xl focus:outline-none focus:border-blue-500 transition-colors`}
+                className={errors.email ? INPUT_ERROR : INPUT_BASE}
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -133,7 +134,7 @@ export function Contact() {
 
             <div>
               <textarea
-                className={`w-full bg-white/5 border ${errors.message ? "border-red-500" : "border-white/10"} p-4 rounded-xl focus:outline-none focus:border-blue-500 transition-colors`}
+                className={errors.message ? INPUT_ERROR : INPUT_BASE}
                 name="message"
                 placeholder="Project Details"
                 rows={4}
@@ -145,10 +146,7 @@ export function Contact() {
               )}
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
-            >
+            <button type="submit" className={BUTTON_PRIMARY}>
               Send via WhatsApp <ArrowRight size={18} />
             </button>
           </form>

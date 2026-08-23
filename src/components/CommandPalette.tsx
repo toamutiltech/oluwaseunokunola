@@ -13,6 +13,7 @@ import {
   User,
   Briefcase,
 } from "lucide-react";
+import { OVERLAY_BACKDROP, MODAL_CONTAINER } from "@/lib/styles";
 
 interface CommandItem {
   id: string;
@@ -125,7 +126,7 @@ export function CommandPalette() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-40 glass px-4 py-2.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:border-blue-500/50 transition-all flex items-center gap-2 shadow-2xl group"
+        className="fixed bottom-6 left-6 z-40 glass px-4 py-2.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:border-blue-500/50 transition-all flex items-center gap-2 shadow-2xl group cursor-pointer"
         title="Open Command Palette (Cmd + K)"
       >
         <Command size={14} className="text-blue-400 group-hover:rotate-12 transition-transform" />
@@ -136,8 +137,8 @@ export function CommandPalette() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-start justify-center pt-24 px-4 animate-in fade-in duration-200">
-      <div className="max-w-xl w-full glass rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+    <div className={OVERLAY_BACKDROP}>
+      <div className={MODAL_CONTAINER}>
         <div className="p-4 border-b border-white/10 flex items-center gap-3">
           <Search size={18} className="text-slate-400" />
           <input
@@ -150,7 +151,7 @@ export function CommandPalette() {
           />
           <button
             onClick={() => setIsOpen(false)}
-            className="text-slate-400 hover:text-white p-1 rounded-lg"
+            className="text-slate-400 hover:text-white p-1 rounded-lg cursor-pointer"
           >
             <X size={18} />
           </button>
@@ -166,7 +167,7 @@ export function CommandPalette() {
               <button
                 key={item.id}
                 onClick={item.action}
-                className="w-full p-3 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-left group"
+                className="w-full p-3 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-left group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
                   <span className="p-2 glass rounded-lg text-blue-400 group-hover:text-blue-300">
