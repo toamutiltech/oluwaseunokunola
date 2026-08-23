@@ -17,21 +17,34 @@ describe("CommandPalette Component", () => {
     expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
   });
 
-  it("opens modal overlay on Cmd+K keyboard shortcut", () => {
+  it("opens modal overlay on Ctrl+K and Cmd+K keyboard shortcut", () => {
+    const { unmount } = render(<CommandPalette />);
+
+    fireEvent.keyDown(window, { key: "k", ctrlKey: true });
+    expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
+    unmount();
+
     render(<CommandPalette />);
     fireEvent.keyDown(window, { key: "k", metaKey: true });
     expect(screen.getByPlaceholderText("Type a command or search sections...")).toBeInTheDocument();
   });
 
-  it("filters search results when typing in search input", async () => {
+  it("filters search results and narrows visible items list when typing query", async () => {
     const user = userEvent.setup();
     render(<CommandPalette />);
 
-    fireEvent.keyDown(window, { key: "k", metaKey: true });
+    fireEvent.keyDown(window, { key: "k", ctrlKey: true });
     const input = screen.getByPlaceholderText("Type a command or search sections...");
 
-    await user.type(input, "Projects");
-    expect(screen.getByText("Jump to Selected Projects")).toBeInTheDocument();
+    await user.type(input, "Resume");
+    expect(screen.getByText("Download Resume (PDF)")).toBeInTheDocument();
+    expect(screen.queryByText("Jump to Core Skills")).not.toBeInTheDocument();
+
+    await user.clear(input);
+    await user.type(input, "NonExistentCommandQuery");
+    expect(
+      screen.getByText('No commands found matching "NonExistentCommandQuery"')
+    ).toBeInTheDocument();
   });
 
   it("closes modal overlay on Escape key press", () => {
