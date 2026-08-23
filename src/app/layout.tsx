@@ -52,10 +52,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://oluwaseun.toamultitech.tech"), // Replace with your domain
 };
 
+import ErrorBoundary from "@/components/ErrorBoundary";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ErrorBoundary>{children}</ErrorBoundary>
+      </body>
     </html>
   );
 }
+
