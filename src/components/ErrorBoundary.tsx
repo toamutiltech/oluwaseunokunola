@@ -27,7 +27,7 @@ export class ErrorBoundary extends Component<Props, State> {
     logError("Uncaught UI Exception captured by ErrorBoundary", {
       message: error.message,
       stack: error.stack,
-      componentStack: errorInfo.componentStack,
+      componentStack: errorInfo.componentStack ?? undefined,
     });
   }
 

@@ -1,5 +1,5 @@
 export interface LogContext {
-  componentStack?: string;
+  componentStack?: string | null;
   digest?: string;
   [key: string]: unknown;
 }
