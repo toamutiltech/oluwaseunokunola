@@ -2,6 +2,15 @@
 
 Thank you for contributing to the **Oluwaseun Adeolu Okunola Portfolio & Engineering Showcase** repository.
 
+## Commit Discipline
+
+To maintain high software engineering quality and mineable git history:
+
+1. **Test & Feature Co-location**: Ship features together with their tests in small, self-contained commits. Every source file addition or behavior modification MUST include its corresponding `__tests__/` spec within the same commit.
+2. **Small Focused Increments**: Avoid bulk commits that mix formatting, refactors, and feature logic. Keep changes atomic.
+3. **Commit Verification**: Before committing, verify that local tests and typechecks pass (`npm run typecheck && npm test`).
+4. **Pull Request Peer Review**: Collaborate via focused PR reviews rather than direct force-pushes to `main`.
+
 ## Branch Naming Convention
 
 Please use descriptive prefixes when creating branches:
@@ -48,6 +57,7 @@ We enforce **Conventional Commit** formatting for clear, automated git history:
    npm run lint
    npm run typecheck
    npm test
+   npm run test:coverage
    npm run build
    ```
 
