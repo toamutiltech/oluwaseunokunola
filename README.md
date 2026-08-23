@@ -14,7 +14,7 @@ A production-grade, highly optimized, and modular Next.js application showcasing
 
 ## 🏗 Architecture & Design System
 
-The application follows a decoupled component-driven architecture separating **Data**, **Types**, **Schema Validation**, **Presentation Logic**, and **Layout Composition**:
+The application follows a decoupled component-driven architecture separating **Data**, **Types**, **Schema Validation**, **Presentation Logic**, **Observability**, and **Layout Composition**:
 
 ```
 Client Browser
@@ -30,11 +30,24 @@ Client Browser
       ├── Leadership Section (src/components/sections/Leadership.tsx)
       ├── Projects Section   (src/components/sections/Projects.tsx)
       ├── Certs Section      (src/components/sections/Certifications.tsx)
-      └── Contact Section    (src/components/sections/Contact.tsx + Zod Validation Schema)
+      ├── Contact Section    (src/components/sections/Contact.tsx + Zod Validation Schema)
+      └── Health Check API   (src/app/api/health/route.ts -> GET /api/health)
             │
             ▼
     Typed Data Modules & Zod Schema (src/data/*.ts + src/lib/validation.ts)
 ```
+
+---
+
+## ⚙️ Environment Variables Configuration
+
+Copy `.env.example` to create your local `.env` configuration file:
+
+| Environment Variable         | Purpose                                            | Default / Example Value               |
+| :--------------------------- | :------------------------------------------------- | :------------------------------------ |
+| `NODE_ENV`                   | Application runtime environment execution mode     | `development`                         |
+| `NEXT_PUBLIC_SITE_URL`       | Canonical public site URL                          | `https://oluwaseun.toamultitech.tech` |
+| `NEXT_PUBLIC_WHATSAPP_PHONE` | Recipient WhatsApp phone number for direct contact | `2348093924896`                       |
 
 ---
 
@@ -44,6 +57,7 @@ Client Browser
 - **Library**: React 19
 - **Language**: TypeScript 5
 - **Schema Validation**: Zod (`contactFormSchema`)
+- **Observability**: Health API Endpoint (`/api/health`), Next.js Error Boundary (`src/app/error.tsx`), Structured Client Logger (`src/lib/logger.ts`)
 - **Styling**: Tailwind CSS v4 & Glassmorphism design tokens
 - **Testing**: Vitest + React Testing Library (`@testing-library/react`)
 - **Formatting**: Prettier
@@ -63,8 +77,13 @@ oluwaseun/
 ├── public/                    # Static assets & images
 ├── src/
 │   ├── app/
+│   │   ├── api/
+│   │   │   └── health/        # Health Check API Route (GET /api/health)
+│   │   │       ├── __tests__/ # Health API route test spec
+│   │   │       └── route.ts
 │   │   ├── __tests__/         # Page integration test suite
 │   │   │   └── page.test.tsx
+│   │   ├── error.tsx          # Next.js App Router Client Error Boundary
 │   │   ├── globals.css
 │   │   ├── layout.tsx
 │   │   └── page.tsx
@@ -87,7 +106,8 @@ oluwaseun/
 │   │       ├── Projects.tsx
 │   │       └── Skills.tsx
 │   ├── data/                  # Decoupled portfolio data modules
-│   ├── lib/                   # Input validation schema
+│   ├── lib/                   # Validation schemas & structured logger
+│   │   ├── logger.ts          # Structured Client Logger utility
 │   │   └── validation.ts      # Zod contactFormSchema definition
 │   └── types/                 # Strict TypeScript interface definitions
 ├── .env.example               # Environment variables specification
@@ -157,7 +177,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🤝 Contributing & Guidelines
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming conventions, Conventional Commit formatting rules, and pull request procedures.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming conventions, Conventional Commit formatting rules, commit discipline requirements, and pull request procedures.
 
 ---
 
